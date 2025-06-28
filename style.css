@@ -1,23 +1,12 @@
-/* General Reset */
-* {
-  box-sizing: border-box;
+/* FIX SCROLL ISSUE */
+html, body {
   margin: 0;
   padding: 0;
-}
-
-/* Prevent fullscreen snapping and allow proper scroll */
-html, body {
-  width: 100%;
   min-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #121212;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: auto;
 }
-
 /* Header */
 header {
   background: #1e1e1e;
