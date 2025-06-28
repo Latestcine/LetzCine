@@ -1,27 +1,30 @@
-/* RESET & SCROLL FIX */
-html, body {
+* {
   margin: 0;
   padding: 0;
-  min-height: 80%;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
-  scroll-behavior: smooth;
   background: #121212;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
 }
 
-/* Your existing CSS below (unchanged) */
 header {
   background: #1e1e1e;
   padding: 20px;
   text-align: center;
 }
+
 header h1 {
   color: #ff3c3c;
   font-size: 2.5rem;
   margin: 0;
 }
+
 nav {
   background: #000;
   display: flex;
@@ -29,6 +32,7 @@ nav {
   padding: 10px;
   flex-wrap: wrap;
 }
+
 nav a {
   color: #fff;
   margin: 5px 15px;
@@ -36,16 +40,19 @@ nav a {
   font-weight: bold;
   transition: color 0.3s;
 }
+
 nav a:hover {
   color: #ff3c3c;
 }
+
 .search-box {
   text-align: center;
   padding: 20px;
   background: #1e1e1e;
 }
+
 .search-box input {
-  width: 60%;
+  width: 90%;
   max-width: 400px;
   padding: 10px;
   border: none;
@@ -53,18 +60,22 @@ nav a:hover {
   background: #2a2a2a;
   color: #fff;
 }
+
 .section {
   padding: 20px;
 }
+
 .section h2 {
   margin-bottom: 15px;
   color: #ff3c3c;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
+
 .card {
   background: #1e1e1e;
   border-radius: 8px;
@@ -72,27 +83,34 @@ nav a:hover {
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   transition: transform 0.3s;
 }
+
 .card:hover {
   transform: scale(1.05);
 }
+
 .card img {
   width: 100%;
   height: 270px;
   object-fit: cover;
+  display: block;
 }
+
 .card-content {
   padding: 10px;
 }
+
 .card-content h3 {
   color: #ff3c3c;
   font-size: 1rem;
   margin: 0 0 5px;
 }
+
 .card-content p {
   font-size: 0.85rem;
   color: #ccc;
   margin: 0 0 8px;
 }
+
 .card-content a {
   display: inline-block;
   padding: 6px 10px;
@@ -102,10 +120,25 @@ nav a:hover {
   text-decoration: none;
   font-size: 0.85rem;
 }
+
 footer {
   background: #000;
   text-align: center;
   padding: 15px;
   color: #777;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .card img {
+    height: 240px;
+  }
+
+  .search-box input {
+    width: 95%;
+  }
 }
