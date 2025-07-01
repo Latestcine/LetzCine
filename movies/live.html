@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Live Match - LetzCine</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>India W vs England W - Live Match | LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .watch-btn {
+      display: inline-block;
+      background-color: #f44336;
+      color: white;
+      padding: 10px 18px;
+      margin: 8px 5px 0 0;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .watch-btn:hover {
+      background-color: #d32f2f;
+    }
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>LetzCine</h1>
   </header>
 
-  <nav>
-    <a href="index.html#latest">Latest</a>
-    <a href="index.html#bollywood">Bollywood</a>
-    <a href="index.html#south">South Indian</a>
-    <a href="index.html#hollywood">Hollywood</a>
-    <a href="index.html#webseries">Web Series</a>
-    <a href="index.html#events">Events</a>
-    <a href="live.html" style="color: #00bcd4; font-weight: bold;">Live Match</a>
-  </nav>
-
   <section class="section">
-    <h2 style="color:#f44336;">Live Streaming – IND W vs ENG W</h2>
-
-    <div class="grid">
-      <div class="card">
-        <img src="images/indw-vs-engw.jpg" alt="India Women vs England Women">
-        <div class="card-content">
-          <h3>India Women vs England Women</h3>
-          <p>Live Match • Multiple Channels • July 2, 11 PM IST</p>
-
-          <div style="margin: 10px 0;">
-            <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')" class="red-button">Willow HD</button>
-            <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')" class="red-button">Sony Ten 1</button>
-            <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')" class="red-button">Astro Cricket</button>
-          </div>
-
-          <video id="livePlayer" width="100%" controls autoplay style="border-radius:14px; max-width: 100%;"></video>
-        </div>
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <img src="../images/indw-vs-engw.jpg" alt="India Women vs England Women" style="width:100%; border-radius:12px;">
+      <div class="card-content">
+        <h3>India Women vs England Women (Live)</h3>
+        <p>Live Streaming • July 2, 11 PM IST</p>
+        <a href="https://www.sonyliv.com/sports/cricket-india-women's-tour-of-england-2025-1090484095?utm_source=shared-content" class="watch-btn" target="_blank">Watch on SonyLIV</a>
+        <a href="https://www.fancode.com/livematch/india-vs-england-women" class="watch-btn" target="_blank">Watch on FanCode</a>
       </div>
     </div>
   </section>
@@ -46,51 +46,5 @@
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    function loadStream(url) {
-      const video = document.getElementById('livePlayer');
-      if (Hls.isSupported()) {
-        if (window.hls) window.hls.destroy();
-        window.hls = new Hls();
-        window.hls.loadSource(url);
-        window.hls.attachMedia(video);
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = url;
-      }
-    }
-  </script>
-
-  <style>
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: sans-serif;
-    }
-    .red-button {
-      background-color: #f44336;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .red-button:hover {
-      background-color: #d32f2f;
-    }
-    .card {
-      background-color: #1e1e1e;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .card-content {
-      margin-top: 10px;
-    }
-  </style>
 </body>
 </html>
