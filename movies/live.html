@@ -4,65 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Live Match - LetzCine</title>
-  <style>
-    body {
-      background-color: #0f172a;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    h1 {
-      padding-top: 20px;
-      color: #00bcd4;
-    }
-    .buttons {
-      margin: 20px;
-    }
-    .buttons button {
-      padding: 12px 18px;
-      margin: 10px;
-      background-color: #1e88e5;
-      border: none;
-      color: white;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .buttons button:hover {
-      background-color: #1565c0;
-    }
-    video {
-      width: 95%;
-      max-width: 900px;
-      margin: 20px auto;
-      display: block;
-      border-radius: 14px;
-    }
-    footer {
-      color: #bbb;
-      font-size: 14px;
-      margin-top: 40px;
-      padding-bottom: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
 
-  <h1>🔴 Live Match Streaming - IND W vs ENG W</h1>
+  <nav>
+    <a href="index.html#latest">Latest</a>
+    <a href="index.html#bollywood">Bollywood</a>
+    <a href="index.html#south">South Indian</a>
+    <a href="index.html#hollywood">Hollywood</a>
+    <a href="index.html#webseries">Web Series</a>
+    <a href="index.html#events">Events</a>
+    <a href="live.html" style="color: #00bcd4; font-weight: bold;">Live Match</a>
+  </nav>
 
-  <div class="buttons">
-    <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">WILLOW - HD</button>
-    <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')">SONY TEN I</button>
-    <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')">Astro Cricket</button>
-    <button onclick="loadStream('https://crichdserver.xyz/channelname.m3u8')">CricHD Backup</button>
-  </div>
+  <section class="section">
+    <h2 style="color:#00bcd4; text-align:center;">🔴 Live Match - IND W vs ENG W</h2>
 
-  <video id="livePlayer" controls autoplay></video>
+    <div class="grid">
+      <div class="card" style="width:100%;">
+        <div class="card-content" style="text-align:center;">
+          <p>Watch now in HD quality</p>
+
+          <div style="margin: 20px 0;">
+            <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">WILLOW - HD</button>
+            <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')">SONY TEN I</button>
+            <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')">Astro Cricket</button>
+            <button onclick="loadStream('https://crichdserver.xyz/channelname.m3u8')">CricHD Backup</button>
+          </div>
+
+          <video id="livePlayer" width="100%" controls autoplay style="border-radius:14px; max-width:900px;"></video>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    © 2025 LetzCine. All rights reserved.
+    &copy; 2025 LetzCine. All rights reserved.
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -79,6 +60,5 @@
       }
     }
   </script>
-
 </body>
 </html>
