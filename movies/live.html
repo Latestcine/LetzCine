@@ -22,21 +22,22 @@
   </nav>
 
   <section class="section">
-    <h2 style="color:#00bcd4; text-align:center;">🔴 Live Match - IND W vs ENG W</h2>
+    <h2 style="color:#f44336;">Live Streaming – IND W vs ENG W</h2>
 
     <div class="grid">
-      <div class="card" style="width:100%;">
-        <div class="card-content" style="text-align:center;">
-          <p>Watch now in HD quality</p>
+      <div class="card">
+        <img src="images/indw-vs-engw.jpg" alt="India Women vs England Women">
+        <div class="card-content">
+          <h3>India Women vs England Women</h3>
+          <p>Live Match • Multiple Channels • July 2, 11 PM IST</p>
 
-          <div style="margin: 20px 0;">
-            <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">WILLOW - HD</button>
-            <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')">SONY TEN I</button>
-            <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')">Astro Cricket</button>
-            <button onclick="loadStream('https://crichdserver.xyz/channelname.m3u8')">CricHD Backup</button>
+          <div style="margin: 10px 0;">
+            <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')" class="red-button">Willow HD</button>
+            <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')" class="red-button">Sony Ten 1</button>
+            <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')" class="red-button">Astro Cricket</button>
           </div>
 
-          <video id="livePlayer" width="100%" controls autoplay style="border-radius:14px; max-width:900px;"></video>
+          <video id="livePlayer" width="100%" controls autoplay style="border-radius:14px; max-width: 100%;"></video>
         </div>
       </div>
     </div>
@@ -60,5 +61,36 @@
       }
     }
   </script>
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: sans-serif;
+    }
+    .red-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .red-button:hover {
+      background-color: #d32f2f;
+    }
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .card-content {
+      margin-top: 10px;
+    }
+  </style>
 </body>
 </html>
