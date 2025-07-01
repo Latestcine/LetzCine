@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Match - LetzCine</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      padding-top: 20px;
+      color: #00bcd4;
+    }
+    .buttons {
+      margin: 20px;
+    }
+    .buttons button {
+      padding: 12px 18px;
+      margin: 10px;
+      background-color: #1e88e5;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background-color: #1565c0;
+    }
+    video {
+      width: 95%;
+      max-width: 900px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 14px;
+    }
+    footer {
+      color: #bbb;
+      font-size: 14px;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔴 Live Match Streaming - IND W vs ENG W</h1>
+
+  <div class="buttons">
+    <button onclick="loadStream('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">WILLOW - HD</button>
+    <button onclick="loadStream('https://moiptvhls-i.akamaihd.net/hls/live/652130/moiptvch6/index.m3u8')">SONY TEN I</button>
+    <button onclick="loadStream('https://linearjitp-playback.astro.com.my/dash-wv/linear/5004/default.mpd')">Astro Cricket</button>
+    <button onclick="loadStream('https://crichdserver.xyz/channelname.m3u8')">CricHD Backup</button>
+  </div>
+
+  <video id="livePlayer" controls autoplay></video>
+
+  <footer>
+    © 2025 LetzCine. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    function loadStream(url) {
+      const video = document.getElementById('livePlayer');
+      if (Hls.isSupported()) {
+        if (window.hls) window.hls.destroy();
+        window.hls = new Hls();
+        window.hls.loadSource(url);
+        window.hls.attachMedia(video);
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = url;
+      }
+    }
+  </script>
+
+</body>
+</html>
