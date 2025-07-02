@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>India vs England - LetzCine (Crichub)</title>
 
-  <!-- Video.js CSS -->
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-
   <style>
     body {
       margin: 0;
@@ -37,9 +34,10 @@
       margin-top: 20px;
     }
 
-    .video-js {
+    video {
       width: 100%;
       height: 500px;
+      background-color: #000;
     }
 
     .note {
@@ -56,23 +54,32 @@
   </header>
 
   <div class="content">
-    <h2>🇮🇳 India vs England 🏏 Live Test Match</h2>
+    <h2>📺 India vs England - HD Stream (DASH)</h2>
 
     <div class="video-container">
-      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8" type="application/x-mpegURL" />
-        Your browser does not support the video tag or HLS streaming.
-      </video>
+      <video id="video" controls autoplay></video>
     </div>
 
-    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome .</p>
+    <p class="note">📱 Rotate your phone for full-screen experience. May not work on Safari iOS.</p>
   </div>
 
-  <!-- Video.js JS -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-
+  <!-- Shaka Player -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.5/shaka-player.compiled.min.js"></script>
   <script>
-    var player = videojs('live-stream');
+    async function initPlayer() {
+      const video = document.getElementById('video');
+      const player = new shaka.Player(video);
+
+      try {
+        await player.load("https://sundirectgo-live.pc.cdn.bitgravity.com/hd38/dth.mpd");
+        console.log("The DASH stream has been loaded successfully!");
+      } catch (e) {
+        console.error("Error loading video", e);
+        alert("⚠️ Unable to load stream. Try a different browser.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", initPlayer);
   </script>
 
 </body>
