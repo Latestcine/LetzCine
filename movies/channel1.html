@@ -11,29 +11,61 @@
   <style>
     body {
       margin: 0;
-      background-color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
     }
+
+    header {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #00ffc3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      padding: 10px;
+      text-align: center;
+    }
+
     .video-container {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      max-width: 900px;
+      margin: auto;
+      margin-top: 20px;
     }
+
     .video-js {
       width: 100%;
-      height: 100%;
-      max-height: 100vh;
+      height: 500px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #999;
     }
   </style>
 </head>
 <body>
 
-  <div class="video-container">
-    <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-      <source src="https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8" type="application/x-mpegURL" />
-      Your browser does not support the video tag or HLS streaming.
-    </video>
+  <header>
+    LetzCine (Crichub) - Live Stream
+  </header>
+
+  <div class="content">
+    <h2>🇮🇳 India vs England 🏏 Live Test Match</h2>
+
+    <div class="video-container">
+      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
+        <source src="https://tataplay.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8" type="application/x-mpegURL" />
+        Your browser does not support the video tag or HLS streaming.
+      </video>
+    </div>
+
+    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
   </div>
 
   <!-- Video.js JS -->
