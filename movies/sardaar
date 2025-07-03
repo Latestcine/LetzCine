@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maa - LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
+  <section class="section">
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <img src="../images/sardaar.jpg" alt="Sardaar ji 3">
+      <div class="card-content">
+        <h3>Sardaar ji 3 (2025)</h3>
+        <p>Hindi | Drama</p>
+        <a href="https://gplinks.co/Sardaarji3" target="_blank">Server 1</a>
+        <a href="https://gplinks.co/Sardaarji3" target="_blank" style="margin-left:10px;">Server 2</a>
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
+</body>
+</html>
