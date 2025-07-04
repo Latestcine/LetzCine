@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chepauk Vs Dindigul- LetzCine (Crichub)</title>
+  <title>Chepauk Vs Dindigul - LetzCine (Crichub)</title>
 
   <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -47,6 +47,19 @@
       font-size: 0.9em;
       color: #999;
     }
+
+    .btn-open-vlc {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00ffc3;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -56,29 +69,29 @@
   </header>
 
   <div class="content">
-    <h2> Chepauk Vs Dindigul 🏏 Live TNPL 2025</h2>
+    <h2>Chepauk Vs Dindigul 🏏 Live TNPL 2025</h2>
 
     <div class="video-container">
       <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://in-mc-fdlive.fancode.com/linear/hls/pa/event/hEL4Sp_mS9CDlainwdPXww/stream/1588f32a-04e6-4bc1-bd74-9c8c0d0c62f7:MRN2/master.m3u8?hdnea=st=1751639250~exp=1751639550~acl=%2a~id=f78cd2a9-ded6-4733-b99c-ada17bd432a8~hmac=a26e19831cb87f31f90becb0a6e2791d78a902cf437f284217dab10405a41916" />
+        <source src="https://in-mc-fdlive.fancode.com/linear/hls/pa/event/hEL4Sp_mS9CDlainwdPXww/stream/1588f32a-04e6-4bc1-bd74-9c8c0d0c62f7:MRN2/master.m3u8?hdnea=st=1751639250~exp=1751639550~acl=*~id=f78cd2a9-ded6-4733-b99c-ada17bd432a8~hmac=a26e19831cb87f31f90becb0a6e2791d78a902cf437f284217dab10405a41916" type="application/x-mpegURL" />
         Your browser does not support the video tag or HLS streaming.
       </video>
     </div>
 
     <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
-    If it doesn’t play, open in VLC or NS Player.</p>
+    <p class="note">⚠️ If it doesn’t play, click the button below to open in VLC or NS Player.</p>
 
-    <!-- Optional: Open in VLC / NS Player -->
-      <a href="https://in-mc-fdlive.fancode.com/linear/hls/pa/event/hEL4Sp_mS9CDlainwdPXww/stream/1588f32a-04e6-4bc1-bd74-9c8c0d0c62f7:MRN2/master.m3u8?hdne">
-        <button style="padding:10px 20px; background:#00ffc3; border:none; border-radius:5px; font-weight:bold;">
-          ▶️ Open in VLC / NS Player
+    <a class="btn-open-vlc" href="vlc://https://in-mc-fdlive.fancode.com/linear/hls/pa/event/hEL4Sp_mS9CDlainwdPXww/stream/1588f32a-04e6-4bc1-bd74-9c8c0d0c62f7:MRN2/master.m3u8?hdnea=st=1751639250~exp=1751639550~acl=*~id=f78cd2a9-ded6-4733-b99c-ada17bd432a8~hmac=a26e19831cb87f31f90becb0a6e2791d78a902cf437f284217dab10405a41916" target="_blank">
+      ▶️ Open in VLC / NS Player
+    </a>
+
   </div>
+
   <!-- Video.js JS -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-
   <script>
     var player = videojs('live-stream');
   </script>
 
 </body>
-        </html>
+</html>
