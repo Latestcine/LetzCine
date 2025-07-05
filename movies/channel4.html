@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LetzCine (Crichub) – Live Match</title>
+
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+
+    header {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #00ffc3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 900px;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .video-js {
+      width: 100%;
+      height: 500px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #999;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin: 10px 10px;
+      background: #00ffc3;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    LetzCine (Crichub) – Live Cricket 🎯
+  </header>
+
+  <div class="content">
+    <h2>📺 Live Cricket Match Streaming</h2>
+    <p>🕒 Starts Soon · English/Kannada/Hindi Commentary</p>
+
+    <div class="video-container">
+      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
+        <source src="https://dna.lnt.sh/cg7Vdvq/cg7DbA77ZwhIqQVS/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjowMjowNyBQTSZoYXNoX3ZhbHVlPTdHREdIazJzYzA1ZU9sNFpkMWZ3Y2c9PSZ2YWxpZG1pbnV0ZXM9Mg==" type="application/x-mpegURL" />
+        Your browser does not support the video tag or HLS streaming.
+      </video>
+    </div>
+
+    <div>
+      <a class="button-link" href="intent://dna.lnt.sh/cg7Vdvq/cg7DbA77ZwhIqQVS/playlist.m3u8#Intent;package=org.videolan.vlc;scheme=https;end;">
+        ▶️ Open in VLC
+      </a>
+
+      <a class="button-link" href="intent://dna.lnt.sh/cg7Vdvq/cg7DbA77ZwhIqQVS/playlist.m3u8#Intent;package=com.nsplayer.app;scheme=https;end;">
+        ▶️ Open in NSPlayer
+      </a>
+    </div>
+
+    <p class="note">🔁 If stream doesn’t start, it will auto-load once the match goes live.<br>📱 Rotate your phone for full-screen experience.</p>
+  </div>
+
+  <!-- Video.js JS -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script>
+    var player = videojs('live-stream');
+  </script>
+
+</body>
+</html>
