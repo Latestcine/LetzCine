@@ -3,111 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LetzCine (Crichub) – 6 July Live Matches</title>
-
-  <!-- Video.js CSS -->
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-
+  <title>LetzCine Live Stream</title>
+  <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0a;
+      background-color: #000;
       color: #fff;
-    }
-
-    header {
-      background-color: #111;
-      padding: 15px;
+      font-family: sans-serif;
       text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #00ffc3;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      margin: 0;
+      padding: 0;
     }
-
-    .content {
-      padding: 10px;
-      text-align: center;
-    }
-
-    .video-container {
-      max-width: 900px;
-      margin: auto;
-      margin-top: 20px;
-    }
-
-    .video-js {
-      width: 100%;
-      height: 500px;
-    }
-
-    .note {
+    .controls {
       margin-top: 15px;
-      font-size: 0.9em;
-      color: #999;
     }
-
-    .button-link {
-      display: inline-block;
-      margin-top: 10px;
-      background: #00ffc3;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
+    .btn {
+      background: #ff0066;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px;
       text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
     }
-
-    hr {
-      margin: 30px 0;
-      border: 1px solid #222;
+    .btn:hover {
+      background: #ff3366;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    LetzCine (Crichub) – Live Cricket 🎯
-  </header>
+  <h2>Live Streaming – LetzCine</h2>
 
-  <div class="content">
-    <h2>Match 1: 🇺🇸 Washington Freedom vs MI New York 🏏</h2>
-    <p>🕒 3:00 PM IST · Commentary: English, Kannada, Hindi</p>
+  <video
+    id="live-video"
+    class="video-js vjs-default-skin"
+    controls
+    autoplay
+    width="100%"
+    height="auto"
+    data-setup='{"fluid": true}'>
+    <source src="https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==" type="application/x-mpegURL" />
+  </video>
 
-    <div class="video-container">
-      <video id="match1" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://freeiptv.example.com/mlc/wf-miy/playlist.m3u8" type="application/x-mpegURL" />
-        Your browser does not support the video tag or HLS streaming.
-      </video>
-    </div>
+  <div class="controls">
+    <a class="btn" href="vlc://https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==" target="_blank">Open in VLC</a>
 
-    <a class="button-link" href="nsplayer://https://freeiptv.example.com/mlc/wf-miy/playlist.m3u8">▶️ Open in VLC / NS Player</a>
-    <p class="note">📱 Rotate your phone for best viewing.</p>
-
-    <hr>
-
-    <h2>Match 2: 🇺🇸 LA Knight Riders vs SF Unicorns 🏏</h2>
-    <p>🕒 7:00 PM IST · Commentary: English, Kannada, Hindi</p>
-
-    <div class="video-container">
-      <video id="match2" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://freeiptv.example.com/mlc/lkr-sfu/playlist.m3u8" type="application/x-mpegURL" />
-        Your browser does not support the video tag or HLS streaming.
-      </video>
-    </div>
-
-    <a class="button-link" href="nsplayer://https://freeiptv.example.com/mlc/lkr-sfu/playlist.m3u8">▶️ Open in VLC / NS Player</a>
-    <p class="note">💡 If it buffers, tap "Open in VLC / NS Player" above.</p>
-
+    <a class="btn" href="intent:https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==#Intent;package=com.mxtech.videoplayer.ad;scheme=http;end;">Open in MX Player</a>
   </div>
-
-  <!-- Video.js JS -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-  <script>
-    videojs('match1');
-    videojs('match2');
-  </script>
 
 </body>
 </html>
