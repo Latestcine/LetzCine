@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chepauk Vs Dindigul - LetzCine (Crichub)</title>
+  <title>LetzCine (Crichub) – 6 July Live Matches</title>
 
   <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -48,49 +48,65 @@
       color: #999;
     }
 
-    .btn-open-vlc {
-      margin-top: 20px;
+    .button-link {
       display: inline-block;
-      padding: 10px 20px;
+      margin-top: 10px;
       background: #00ffc3;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
       color: #000;
-      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
       text-decoration: none;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #222;
     }
   </style>
 </head>
 <body>
 
   <header>
-    LetzCine (Crichub) - Live Stream
+    LetzCine (Crichub) – Live Cricket 🎯
   </header>
 
   <div class="content">
-    <h2>Chepauk Vs Dindigul 🏏 Live TNPL 2025</h2>
+    <h2>Match 1: 🇺🇸 Washington Freedom vs MI New York 🏏</h2>
+    <p>🕒 3:00 PM IST · Commentary: English, Kannada, Hindi</p>
 
     <div class="video-container">
-      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://dna.lnt.sh/cg7Vdvq/cg7VbQlGcgpCZftRaG/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny80LzIwMjUgNDo0NjowNiBQTSZoYXNoX3ZhbHVlPWhCdVd3OEorSEJzdTFnelQ3cjFyQ1E9PSZ2YWxpZG1pbnV0ZXM9Mg==" />
+      <video id="match1" class="video-js vjs-default-skin" controls autoplay playsinline>
+        <source src="https://freeiptv.example.com/mlc/wf-miy/playlist.m3u8" type="application/x-mpegURL" />
         Your browser does not support the video tag or HLS streaming.
       </video>
     </div>
 
-    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
-    <p class="note">⚠️ If it doesn’t play, click the button below to open in VLC or NS Player.</p>
+    <a class="button-link" href="nsplayer://https://freeiptv.example.com/mlc/wf-miy/playlist.m3u8">▶️ Open in VLC / NS Player</a>
+    <p class="note">📱 Rotate your phone for best viewing.</p>
 
-    <a class="btn-open-vlc" href="https://dna.lnt.sh/cg7Vdvq/cg7VbQlGcgpCZftRaG/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny80LzIwMjUgNDo0NjowNiBQTSZoYXNoX3ZhbHVlPWhCdVd3OEorSEJzdTFnelQ3cjFyQ1E9PSZ2YWxpZG1pbnV0ZXM9Mg==" target="_blank">
-      ▶️ Open in VLC / NS Player
-    </a>
+    <hr>
+
+    <h2>Match 2: 🇺🇸 LA Knight Riders vs SF Unicorns 🏏</h2>
+    <p>🕒 7:00 PM IST · Commentary: English, Kannada, Hindi</p>
+
+    <div class="video-container">
+      <video id="match2" class="video-js vjs-default-skin" controls autoplay playsinline>
+        <source src="https://freeiptv.example.com/mlc/lkr-sfu/playlist.m3u8" type="application/x-mpegURL" />
+        Your browser does not support the video tag or HLS streaming.
+      </video>
+    </div>
+
+    <a class="button-link" href="nsplayer://https://freeiptv.example.com/mlc/lkr-sfu/playlist.m3u8">▶️ Open in VLC / NS Player</a>
+    <p class="note">💡 If it buffers, tap "Open in VLC / NS Player" above.</p>
 
   </div>
 
   <!-- Video.js JS -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
-    var player = videojs('live-stream');
+    videojs('match1');
+    videojs('match2');
   </script>
 
 </body>
