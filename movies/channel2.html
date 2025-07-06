@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Star Sports 1- LetzCine (Crichub)</title>
+  <title>Star Sports 1 - LetzCine (Crichub)</title>
 
-  <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
@@ -35,6 +34,7 @@
       max-width: 900px;
       margin: auto;
       margin-top: 20px;
+      position: relative;
     }
 
     .video-js {
@@ -42,12 +42,51 @@
       height: 500px;
     }
 
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #00ffc3;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 4px;
+      z-index: 999;
+      pointer-events: none;
+    }
+
     .note {
       margin-top: 15px;
       font-size: 0.9em;
       color: #999;
     }
+
+    .secure-btn {
+      padding: 10px 20px;
+      background: #00ffc3;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      margin-top: 20px;
+    }
   </style>
+
+  <!-- Disable Right-click + DevTools -->
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = function(e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key === "I") ||
+        (e.ctrlKey && e.shiftKey && e.key === "J") ||
+        (e.ctrlKey && e.key === "U")
+      ) {
+        return false;
+      }
+    };
+  </script>
 </head>
 <body>
 
@@ -56,29 +95,38 @@
   </header>
 
   <div class="content">
-    <h2> Live  🏏  Match</h2>
+    <h2>Live 🏏 Match - Star Sports 1</h2>
 
     <div class="video-container">
       <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://8088y.site/JioTv/play.php?id=1142" />
+        <source src="/secure/stream.php?id=ten3" type="application/x-mpegURL" />
         Your browser does not support the video tag or HLS streaming.
       </video>
+      <!-- Watermark Overlay -->
+      <div class="watermark" id="watermark">LetzCine | Loading IP...</div>
     </div>
 
     <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
-    If it doesn’t play, open in VLC or NS Player.</p>
+    <p class="note">If it doesn’t play, open in VLC or NS Player below.</p>
 
-    <!-- Optional: Open in VLC / NS Player -->
-      <a href="https://8088y.site/JioTv/play.php?id=1142">
-        <button style="padding:10px 20px; background:#00ffc3; border:none; border-radius:5px; font-weight:bold;">
-          ▶️ Open in VLC / NS Player
+    <a href="/secure/stream.php?id=ten3">
+      <button class="secure-btn">▶️ Open in VLC / NS Player</button>
+    </a>
   </div>
-  <!-- Video.js JS -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
     var player = videojs('live-stream');
   </script>
 
+  <!-- Fetch and show user IP in watermark -->
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('watermark').textContent = 'LetzCine | IP: ' + data.ip;
+      });
+  </script>
+
 </body>
-        </html>
+</html>
