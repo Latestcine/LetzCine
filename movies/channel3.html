@@ -3,55 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LetzCine Live Stream</title>
-  <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
-  <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+  <title>Willow Live- LetzCine (Crichub)</title>
+
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
   <style>
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
     }
-    .controls {
+
+    header {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #00ffc3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 900px;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .video-js {
+      width: 100%;
+      height: 500px;
+    }
+
+    .note {
       margin-top: 15px;
+      font-size: 0.9em;
+      color: #999;
     }
+
     .btn {
-      background: #ff0066;
-      color: white;
-      padding: 12px 20px;
-      margin: 10px;
-      text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
-    }
-    .btn:hover {
-      background: #ff3366;
+      padding:10px 20px;
+      background:#00ffc3;
+      border:none;
+      border-radius:5px;
+      font-weight:bold;
+      color: #000;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <h2>Live Streaming – LetzCine</h2>
+  <header>
+    LetzCine (Crichub) - Live Stream
+  </header>
 
-  <video
-    id="live-video"
-    class="video-js vjs-default-skin"
-    controls
-    autoplay
-    width="100%"
-    height="auto"
-    data-setup='{"fluid": true}'>
-    <source src="https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==" type="application/x-mpegURL" />
-  </video>
+  <div class="content">
+    <h2>🏏 Live Match </h2>
 
-  <div class="controls">
-    <a class="btn" href="vlc://https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==" target="_blank">Open in VLC</a>
+    <div class="video-container">
+      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
+        <source src="proxy.php?id=willow-sp" type="application/x-mpegURL" />
+        Your browser does not support the video tag or HLS streaming.
+      </video>
+    </div>
 
-    <a class="btn" href="intent:https://dna.lnt.sh/cg7Vdvq/cg7DbA77aAhCbgx8/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny81LzIwMjUgNjoxMjowMCBQTSZoYXNoX3ZhbHVlPUtscnNYUkszY0hHMU85aW5PcVAwb2c9PSZ2YWxpZG1pbnV0ZXM9Mg==#Intent;package=com.mxtech.videoplayer.ad;scheme=http;end;">Open in MX Player</a>
+    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
+    <p class="note">If it doesn’t play, open in VLC or NS Player:</p>
+
+    <a href="proxy.php?id=willow-sp">
+      <button class="btn">▶️ Open in VLC / NS Player</button>
+    </a>
   </div>
+
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script>
+    var player = videojs('live-stream');
+  </script>
 
 </body>
 </html>
