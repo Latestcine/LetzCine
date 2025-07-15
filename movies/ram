@@ -1,0 +1,31 @@
+document.getElementById('searchInput').addEventListener('keyup', function() {
+      const filter = this.value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(filter) ? '' : 'none';
+      });
+    });
+  </script></body>
+</html>
+
+ffmpeg -i maalik_sample_clip.mp4 -i bgm.mp3 -i letzcine_logo.png \
+  -filter_complex "
+    [1:a]volume=0.2[a1];                                    
+    [0:a][a1]amix=inputs=2:duration=first:dropout_transition=2[aout];
+
+    [0:v]drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:
+      text='🔥 MAALIK – Sample Clip':
+      fontcolor=white:fontsize=60:
+      box=1:boxcolor=black@0.6:
+      x=(w-text_w)/2:y=50:enable='between(t,0,3)'[v1];
+
+    [v1]drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:
+      text='Now Streaming on LetzCine Website & Telegram':
+      fontcolor=white:fontsize=50:
+      box=1:boxcolor=black@0.6:
+      x=(w-text_w)/2:y=h-100:enable='between(t,34,37)'[v2];
+
+    [v2][2:v]overlay=W-w-20:20:enable='between(t,0,37)'[vout]
+  " \
+  -map "[vout]" -map "[aout]" \
+  -c:v libx264 -c:a aac -preset medium \
+  maalik_reel_final.mp4
