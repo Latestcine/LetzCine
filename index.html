@@ -30,6 +30,43 @@
   <div class="search-box">
     <input type="text" id="searchInput" placeholder="Search movies...">
   </div>  <section id="latest" class="section">
+    <!-- Moving Telegram + Website Update Banner -->
+<div class="moving-banner">
+  <marquee behavior="scroll" direction="left" scrollamount="5">
+    📢 <a href="https://t.me/+pd-fYysJ-2QxMjVl" target="_blank">Join our Telegram Channel</a>
+    &nbsp; | &nbsp;
+    🔔 For more updates, visit <a href="https://letz-cine-59v7.vercel.app/" target="_blank">LetzCine</a>
+  </marquee>
+</div>
+
+<style>
+  .moving-banner {
+    background-color: #1e1e1e;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .moving-banner a {
+    color: #00aced;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .moving-banner a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 600px) {
+    .moving-banner {
+      font-size: 13px;
+    }
+  }
+</style>
   <h2>Latest</h2>
   <div class="grid">   
     <div class="card">
