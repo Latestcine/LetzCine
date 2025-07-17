@@ -19,12 +19,18 @@
         <p>Hindi | Comedy | Romance</p>
 
         <!-- Server Buttons -->
-        <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="background-color: red; color: white; padding: 8px 16px; margin-right: 10px; display: inline-block;">Download</a>
-        <a href="#" onclick="document.getElementById('server2').style.display='block'; return false;" style="background-color: red; color: white; padding: 8px 16px; display: inline-block;">Watch Now</a>
+        <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="background-color: red; color: white; padding: 8px 16px; margin-right: 10px; display: inline-block;">Server 1</a>
+        <a href="#" onclick="document.getElementById('server2').style.display='block'; return false;" style="background-color: red; color: white; padding: 8px 16px; display: inline-block;">Server 2</a>
 
         <!-- Server 2 Stream -->
-        <div id="Watch Now" style="display:none; margin-top: 15px;">
-          <iframe src="https://pixeldrain.com/u/xxKgguAw" width="100%" height="450" allowfullscreen style="border: none;"></iframe>
+        <div id="server2" style="display:none; margin-top: 15px;">
+          <iframe 
+            src="https://pixeldrain.com/api/file/xxKgguAw/stream" 
+            width="100%" 
+            height="450" 
+            allowfullscreen 
+            style="border: none;">
+          </iframe>
         </div>
       </div>
     </div>
