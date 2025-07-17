@@ -3,29 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maa - LetzCine</title>
+  <title>Housefull 5 – LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
-  <style>
-    .server-btn {
-      display: inline-block;
-      background-color: red;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px 5px 0 0;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    #player-container {
-      margin-top: 20px;
-      display: none;
-    }
-  </style>
 </head>
 <body>
   <header>
     <h1>LetzCine</h1>
   </header>
+
   <section class="section">
     <div class="card" style="max-width: 500px; margin: auto;">
       <img src="../images/Housefull5.jpg" alt="Housefull5">
@@ -33,30 +18,20 @@
         <h3>Housefull 5 (2025)</h3>
         <p>Hindi | Comedy | Romance</p>
 
-        <!-- Server 1 -->
-        <a href="https://shrtlk.biz/HouseFull5" target="_blank" class="server-btn">Download</a>
+        <!-- Server Buttons -->
+        <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="background-color: red; color: white; padding: 8px 16px; margin-right: 10px; display: inline-block;">Download</a>
+        <a href="#" onclick="document.getElementById('server2').style.display='block'; return false;" style="background-color: red; color: white; padding: 8px 16px; display: inline-block;">Watch Now</a>
 
-        <!-- Server 2 -->
-        <a href="javascript:void(0);" onclick="showPlayer()" class="server-btn">Watch Now</a>
-
-        <!-- Hidden Player -->
-        <div id="player-container">
-          <iframe src="https://streamtape.com/e/jqrkAJVYrxSzW2k/"
-                  width="100%" height="450" frameborder="0"
-                  allowfullscreen allow="autoplay"></iframe>
+        <!-- Server 2 Stream -->
+        <div id="Watch Now" style="display:none; margin-top: 15px;">
+          <iframe src="https://pixeldrain.com/u/xxKgguAw" width="100%" height="450" allowfullscreen style="border: none;"></iframe>
         </div>
-
       </div>
     </div>
   </section>
+
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
-
-  <script>
-    function showPlayer() {
-      document.getElementById("player-container").style.display = "block";
-    }
-  </script>
 </body>
 </html>
