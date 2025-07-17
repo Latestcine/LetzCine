@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Housefull 5 - LetzCine</title>
-  <link rel="stylesheet" href="../style.css" />
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Housefull 5 - LetzCine</title>  
+  <link rel="stylesheet" href="../style.css" />  
   <style>
     .server-buttons {
       text-align: center;
-      margin: 15px 0;
+      margin-top: 15px;
     }
     .server-buttons button {
-      background-color: #e50914; /* Netflix Red */
-      color: #fff;
+      background-color: #e50914;
+      color: white;
       border: none;
       padding: 10px 20px;
-      margin: 0 5px;
+      margin: 5px;
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
     .server-buttons button:hover {
       background-color: #b40610;
@@ -28,54 +27,50 @@
       display: none;
       margin-top: 15px;
     }
-    .active {
+    .server-content.active {
       display: block;
     }
   </style>
-</head>
-<body>
-  <header>
-    <h1>LetzCine</h1>
-  </header>
+</head>  
+<body>  
+  <header>  
+    <h1>LetzCine</h1>  
+  </header>  
 
-  <section class="section">
-    <div class="card" style="max-width: 500px; margin: auto;">
-      <img src="../images/Housefull5.jpg" alt="Housefull5">
-      <div class="card-content">
-        <h3>Housefull 5 (2025)</h3>
+  <section class="section">  
+    <div class="card" style="max-width: 500px; margin: auto;">  
+      <img src="../images/Housefull5.jpg" alt="Housefull5">  
+      <div class="card-content">  
+        <h3>Housefull 5 (2025)</h3>  
         <p>Hindi | Comedy | Romance</p>
 
-        <!-- ✅ Red Tab Buttons -->
         <div class="server-buttons">
           <button onclick="showServer('server1')">Server 1</button>
-          <button onclick="showServer('server2')">Watch Now</button>
+          <button onclick="showServer('server2')">Server 2</button>
         </div>
 
-        <!-- ✅ Server 1 Content -->
         <div id="server1" class="server-content active">
-          <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="display: inline-block; margin-top: 10px;">Click to Watch (GPLink)</a>
+          <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="display:inline-block; color:#e50914; font-weight:bold;">Watch on Server 1</a>
         </div>
 
-        <!-- ✅ Server 2 - StreamTape Embed -->
         <div id="server2" class="server-content">
-          <iframe src="https://streamtape.com/e/jqrkAJVYrxSzW2k/"
-                  width="100%" height="500" frameborder="0"
+          <iframe src="https://streamtape.com/e/jqrkAJVYrxSzW2k/" 
+                  width="100%" height="450" frameborder="0" 
                   allowfullscreen allow="autoplay"></iframe>
         </div>
-      </div>
-    </div>
-  </section>
+      </div>  
+    </div>  
+  </section>  
 
-  <footer>
-    &copy; 2025 LetzCine. All rights reserved.
-  </footer>
+  <footer>  
+    &copy; 2025 LetzCine. All rights reserved.  
+  </footer>  
 
-  <!-- ✅ Toggle Logic -->
   <script>
     function showServer(serverId) {
       document.querySelectorAll('.server-content').forEach(el => el.classList.remove('active'));
       document.getElementById(serverId).classList.add('active');
     }
   </script>
-</body>
+</body>  
 </html>
