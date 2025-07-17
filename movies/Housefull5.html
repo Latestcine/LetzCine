@@ -8,16 +8,21 @@
   <style>
     .server-buttons {
       text-align: center;
-      margin-top: 10px;
+      margin: 15px 0;
     }
     .server-buttons button {
+      background-color: #e50914; /* Netflix Red */
+      color: #fff;
+      border: none;
       padding: 10px 20px;
       margin: 0 5px;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
-      background-color: #444;
-      color: white;
-      border: none;
-      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    .server-buttons button:hover {
+      background-color: #b40610;
     }
     .server-content {
       display: none;
@@ -40,19 +45,19 @@
         <h3>Housefull 5 (2025)</h3>
         <p>Hindi | Comedy | Romance</p>
 
-        <!-- ✅ Server Buttons -->
+        <!-- ✅ Red Tab Buttons -->
         <div class="server-buttons">
           <button onclick="showServer('server1')">Server 1</button>
-          <button onclick="showServer('server2')">Watch Now</button> <!-- Renamed -->
+          <button onclick="showServer('server2')">Watch Now</button>
         </div>
 
         <!-- ✅ Server 1 Content -->
         <div id="server1" class="server-content active">
-          <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="display: inline-block; margin-top: 10px;">Watch on Server 1 (GPLink)</a>
+          <a href="https://shrtlk.biz/HouseFull5" target="_blank" style="display: inline-block; margin-top: 10px;">Click to Watch (GPLink)</a>
         </div>
 
-        <!-- ✅ Watch Now StreamTape Embed -->
-        <div id="Watch Now" class="server-content">
+        <!-- ✅ Server 2 - StreamTape Embed -->
+        <div id="server2" class="server-content">
           <iframe src="https://streamtape.com/e/jqrkAJVYrxSzW2k/"
                   width="100%" height="500" frameborder="0"
                   allowfullscreen allow="autoplay"></iframe>
@@ -65,7 +70,7 @@
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
 
-  <!-- ✅ Script to switch servers -->
+  <!-- ✅ Toggle Logic -->
   <script>
     function showServer(serverId) {
       document.querySelectorAll('.server-content').forEach(el => el.classList.remove('active'));
