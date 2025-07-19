@@ -3,22 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Housefull5 - LetzCine</title>
+  <title>Housefull 5 - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
     .server-btn {
       display: inline-block;
-      background-color: red;
+      background-color: #d62828;
       color: white;
       padding: 10px 20px;
       margin: 10px 5px 0 0;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .server-btn:hover {
+      background-color: #a61c1c;
     }
     #player-container {
       margin-top: 20px;
       display: none;
+    }
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+    }
+    .card {
+      text-align: center;
     }
   </style>
 </head>
@@ -26,9 +39,10 @@
   <header>
     <h1>LetzCine</h1>
   </header>
+
   <section class="section">
     <div class="card" style="max-width: 500px; margin: auto;">
-      <img src="../images/Housefull5.jpg" alt="Housefull5">
+      <img src="../images/Housefull5.jpg" alt="Housefull 5" width="100%">
       <div class="card-content">
         <h3>Housefull 5 (2025)</h3>
         <p>Hindi | Comedy | Romance</p>
@@ -39,16 +53,18 @@
         <!-- Server 2 -->
         <a href="javascript:void(0);" onclick="showPlayer()" class="server-btn">Watch Now</a>
 
-        <!-- Hidden Player -->
+        <!-- Hidden Telegram Player -->
         <div id="player-container">
-          <iframe src="https://streamtape.com/e/jqrkAJVYrxSzW2k/"
-                  width="100%" height="450" frameborder="0"
-                  allowfullscreen allow="autoplay"></iframe>
+          <iframe 
+            src="https://vidsrc.to/embed/telegram?url=https://t.me/c/2878679052/2" 
+            allowfullscreen 
+            allow="autoplay">
+          </iframe>
         </div>
-
       </div>
     </div>
   </section>
+
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
