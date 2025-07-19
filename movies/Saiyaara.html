@@ -9,16 +9,13 @@
     .watch-button {
       display: inline-block;
       margin-left: 10px;
-      background-color: #ff5050;
+      background-color: #28a745;
       color: white;
       padding: 8px 12px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
-    }
-    #videoContainer {
-      margin-top: 15px;
     }
   </style>
 </head>
@@ -34,34 +31,4 @@
         <h3>Saiyaara (2025)</h3>
         <p>Hindi | Love | Romantic</p>
 
-        <!-- Server links -->
-        <a href="https://gplinks.co/Saiyaara0" target="_blank">Server 1</a>
-        <button class="watch-button" onclick="loadVideo()">Server 2</button>
-
-        <!-- Placeholder for iframe -->
-        <div id="videoContainer"></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 LetzCine. All rights reserved.
-  </footer>
-
-  <!-- Load iframe only on click -->
-  <script>
-    function loadVideo() {
-      const container = document.getElementById('videoContainer');
-      if (!container.innerHTML) {
-        const iframe = document.createElement('iframe');
-        iframe.src = "https://filemoon.sx/e/m02yxhjywz2n";
-        iframe.frameBorder = "0";
-        iframe.width = "100%";
-        iframe.height = "360";
-        iframe.allowFullscreen = true;
-        container.appendChild(iframe);
-      }
-    }
-  </script>
-</body>
-</html>
+        <!--
