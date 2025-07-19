@@ -8,10 +8,9 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
       margin: 0;
       padding: 0;
-      color: #333;
+      background-color: #f4f4f4;
     }
 
     header {
@@ -22,33 +21,43 @@
     }
 
     .section {
-      padding: 30px 15px;
+      padding: 20px;
     }
 
     .card {
       background-color: #fff;
+      max-width: 500px;
+      margin: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
 
     .card img {
       width: 100%;
-      border-radius: 10px;
+      display: block;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
     }
 
     .card-content h3 {
-      margin-top: 15px;
+      margin: 10px 0;
       font-size: 24px;
     }
 
     .card-content p {
-      color: #777;
-      margin: 5px 0 15px;
+      color: #666;
+      margin-bottom: 15px;
     }
 
-    .server-links a {
+    .button-row {
+      margin-top: 10px;
+    }
+
+    .link-button {
       display: inline-block;
       margin: 10px 10px 0 0;
       padding: 10px 20px;
@@ -60,17 +69,18 @@
       transition: background 0.3s;
     }
 
-    .server-links a:hover {
+    .link-button:hover {
       background-color: #0056b3;
     }
 
     .video-container {
+      display: none;
+      margin-top: 20px;
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       max-width: 100%;
-      margin-top: 20px;
       border-radius: 10px;
     }
 
@@ -98,19 +108,22 @@
   </header>
 
   <section class="section">
-    <div class="card" style="max-width: 500px; margin: auto;">
+    <div class="card">
       <img src="../images/Nikitaroy.jpg" alt="Nikita Roy Poster">
       <div class="card-content">
         <h3>Nikita Roy (2025)</h3>
         <p>Hindi | Horror | Thriller</p>
 
-        <div class="server-links">
-          <a href="https://gplinks.co/NikitaRoy" target="_blank">Download</a>
-          <a href="#server2">Watch</a>
+        <div class="button-row">
+          <!-- Server 1 / Download -->
+          <a href="https://gplinks.co/NikitaRoy" target="_blank" class="link-button">Download</a>
+
+          <!-- Server 2 / Watch Now -->
+          <button class="link-button" onclick="showVideo()">Watch Now</button>
         </div>
 
-        <!-- Server 2 Video -->
-        <div id="server2" class="video-container">
+        <!-- Server 2 Embedded Video -->
+        <div id="videoBox" class="video-container">
           <iframe 
             src="https://drive.google.com/file/d/1YRyt9bi-_ga51D0L76KqQE2dnXacVimV/preview" 
             allow="autoplay; encrypted-media" 
@@ -124,5 +137,12 @@
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
+
+  <script>
+    function showVideo() {
+      document.getElementById("videoBox").style.display = "block";
+      document.getElementById("videoBox").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
