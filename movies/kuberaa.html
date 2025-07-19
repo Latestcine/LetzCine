@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kuberaa - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    .video-container {
+      display: none;
+      margin-top: 15px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #e50914;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #c40812;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>LetzCine</h1>
   </header>
+
   <section class="section">
     <div class="card" style="max-width: 500px; margin: auto;">
       <img src="../images/kuberaa.jpg" alt="Kuberaa">
       <div class="card-content">
         <h3>Kuberaa (2025)</h3>
         <p>Hindi | Action / Drama</p>
-        <a href="https://gplinks.co/eLIx1wXc" target="_blank">Server 1</a>
-        <a href="https://gplinks.co/eLIx1wXc" target="_blank" style="margin-left:10px;">Server 2</a>
+        <a href="#" class="btn" onclick="showVideo()">Watch Now</a>
+        <a href="https://gplinks.co/eLIx1wXc" class="btn" style="margin-left:10px;" target="_blank">Download</a>
       </div>
     </div>
+
+    <div class="video-container" id="videoBox">
+      <iframe src="https://drive.google.com/file/d/1IRKQo9vC7oJFghEz0knWc74sREse7vMU/preview" frameborder="0" allowfullscreen></iframe>
+    </div>
   </section>
+
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
+
+  <script>
+    function showVideo() {
+      document.getElementById("videoBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
