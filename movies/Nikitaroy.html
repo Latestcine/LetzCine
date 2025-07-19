@@ -1,27 +1,126 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saiyaara - LetzCine</title>
+  <title>Nikita Roy - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .section {
+      padding: 30px 15px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card-content h3 {
+      margin-top: 15px;
+      font-size: 24px;
+    }
+
+    .card-content p {
+      color: #777;
+      margin: 5px 0 15px;
+    }
+
+    .server-links a {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .server-links a:hover {
+      background-color: #0056b3;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #fff;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>LetzCine</h1>
   </header>
+
   <section class="section">
     <div class="card" style="max-width: 500px; margin: auto;">
-      <img src="../images/Nikitaroy.jpg" alt="Nikita Roy">
+      <img src="../images/Nikitaroy.jpg" alt="Nikita Roy Poster">
       <div class="card-content">
-        <h3>Nikita Roy(2025)</h3>
-        <p>Hindi |Horror| Thriller</p>
-        <a href="https://gplinks.co/NikitaRoy" target="_blank">Server 1</a>
-        <a href="https://gplinks.co/NikitaRoy" target="_blank" style="margin-left:10px;">Server 2</a>
+        <h3>Nikita Roy (2025)</h3>
+        <p>Hindi | Horror | Thriller</p>
+
+        <div class="server-links">
+          <a href="https://gplinks.co/NikitaRoy" target="_blank">Server 1 (Download/Watch)</a>
+          <a href="#server2">Server 2 (Watch Online)</a>
+        </div>
+
+        <!-- Server 2 Video -->
+        <div id="server2" class="video-container">
+          <iframe 
+            src="https://drive.google.com/file/d/1YRyt9bi-_ga51D0L76KqQE2dnXacVimV/preview" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
+
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
