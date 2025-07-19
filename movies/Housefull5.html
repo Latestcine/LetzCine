@@ -8,24 +8,27 @@
   <style>
     .server-btn {
       display: inline-block;
-      background-color: #e63946;
+      background-color: #d62828;
       color: white;
       padding: 10px 20px;
-      margin-top: 20px;
+      margin: 10px 5px 0 0;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .server-btn:hover {
+      background-color: #a61c1c;
     }
     #player-container {
-      margin-top: 30px;
+      margin-top: 20px;
       display: none;
     }
     iframe {
       width: 100%;
       height: 450px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
     }
     .card {
       text-align: center;
@@ -44,15 +47,24 @@
         <h3>Housefull 5 (2025)</h3>
         <p>Hindi | Comedy | Romance</p>
 
-        <!-- Watch Now Button -->
-        <a href="javascript:void(0);" onclick="startWatchFlow()" class="server-btn">🎬 Watch Now</a>
+        <!-- Server 1: Download -->
+        <a href="https://shrtlk.biz/HouseFull5" target="_blank" class="server-btn">Download</a>
 
-        <!-- Hidden Video Player -->
+        <!-- Server 2: Watch Now via Telegram -->
+        <a href="javascript:void(0);" onclick="showPlayer()" class="server-btn">Watch Now</a>
+
+        <!-- Hidden Telegram Player -->
         <div id="player-container">
           <iframe 
-            src="https://vidsrc.to/embed/telegram?url=https://t.me/letzc66/2"
-            allowfullscreen allow="autoplay">
+            src="https://vidsrc.to/embed/telegram?url=https://t.me/letzc66/2" 
+            allowfullscreen 
+            allow="autoplay">
           </iframe>
+
+          <!-- Optional fallback: Direct link to open in Telegram app -->
+          <p style="margin-top: 10px;">
+            If video doesn't load, <a href="https://t.me/letzc66/2" target="_blank">click here to watch in Telegram</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -63,20 +75,9 @@
   </footer>
 
   <script>
-    function startWatchFlow() {
-      // Mark that the user wants to watch
-      localStorage.setItem("letzcine_watch", "yes");
-      // Redirect to your GPLinks short link
-      window.location.href = "https://gplinks.co/WatchNow0";
+    function showPlayer() {
+      document.getElementById("player-container").style.display = "block";
     }
-
-    // On return, show video if marked
-    window.onload = function () {
-      if (localStorage.getItem("letzcine_watch") === "yes") {
-        document.getElementById("player-container").style.display = "block";
-        localStorage.removeItem("letzcine_watch");
-      }
-    };
   </script>
 </body>
 </html>
