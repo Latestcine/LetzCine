@@ -52,8 +52,8 @@
         <!-- Server 1 -->
         <a href="https://gplinks.co/Saiyaara0" target="_blank" class="link-button">Download</a>
 
-        <!-- Server 2 Watch Now Link -->
-        <a href="javascript:void(0)" onclick="showVideo()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+        <!-- Watch Now -->
+        <a href="javascript:void(0)" onclick="goToAd()" class="link-button" style="margin-left: 10px;" id="watchNowBtn">Watch Now</a>
 
         <!-- Google Drive Video Embed (Hidden Initially) -->
         <div id="videoBox" class="video-container">
@@ -62,7 +62,7 @@
             frameborder="0" 
             allowfullscreen>
           </iframe>
-           </div>
+        </div>
       </div>
     </div>
   </section>
@@ -72,9 +72,19 @@
   </footer>
 
   <script>
-    function showVideo() {
-      document.getElementById("videoBox").style.display = "block";
+    function goToAd() {
+      localStorage.setItem("watchedSaiyaaraAd", "true");
+      window.location.href = "https://gplinks.co/Watch1";
     }
+
+    function checkIfAdWatched() {
+      if (localStorage.getItem("watchedSaiyaaraAd") === "true") {
+        document.getElementById("videoBox").style.display = "block";
+        document.getElementById("watchNowBtn").style.display = "none";
+      }
+    }
+
+    window.onload = checkIfAdWatched;
   </script>
 </body>
 </html>
