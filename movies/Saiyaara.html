@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Saiyaara - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    .watch-button {
+      display: inline-block;
+      margin-left: 10px;
+      background-color: #ff5050;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #videoContainer {
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,14 +33,13 @@
       <div class="card-content">
         <h3>Saiyaara (2025)</h3>
         <p>Hindi | Love | Romantic</p>
+
+        <!-- Server links -->
         <a href="https://gplinks.co/Saiyaara0" target="_blank">Server 1</a>
-        
-        <!-- Server 2 as iframe -->
-        <div style="margin-top: 15px;">
-          <p><strong>Watch Now:</strong></p>
-          <iframe src="https://filemoon.sx/e/m02yxhjywz2n" frameborder="0" width="100%" height="360" allowfullscreen></iframe>
-        </div>
-        
+        <button class="watch-button" onclick="loadVideo()">Server 2</button>
+
+        <!-- Placeholder for iframe -->
+        <div id="videoContainer"></div>
       </div>
     </div>
   </section>
@@ -32,5 +47,21 @@
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
+
+  <!-- Load iframe only on click -->
+  <script>
+    function loadVideo() {
+      const container = document.getElementById('videoContainer');
+      if (!container.innerHTML) {
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://filemoon.sx/e/m02yxhjywz2n";
+        iframe.frameBorder = "0";
+        iframe.width = "100%";
+        iframe.height = "360";
+        iframe.allowFullscreen = true;
+        container.appendChild(iframe);
+      }
+    }
+  </script>
 </body>
 </html>
