@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../style.css" />
   <style>
     .video-container {
+      display: none;
       margin-top: 15px;
       position: relative;
       padding-bottom: 56.25%;
@@ -22,7 +23,7 @@
     }
     .btn {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       padding: 10px 20px;
       background-color: #e50914;
       color: white;
@@ -31,11 +32,6 @@
     }
     .btn:hover {
       background-color: #c40812;
-    }
-    .note {
-      font-size: 14px;
-      margin-top: 8px;
-      color: #555;
     }
   </style>
 </head>
@@ -50,18 +46,12 @@
       <div class="card-content">
         <h3>Kuberaa (2025)</h3>
         <p>Hindi | Action / Drama</p>
-
-        <!-- Download button -->
-        <a href="https://gplinks.co/eLIx1wXc" class="btn" target="_blank">Download</a>
-
-        <!-- Optional: Open in VLC -->
-        <a href="vlc://https://drive.google.com/uc?export=download&id=1IRKQo9vC7oJFghEz0knWc74sREse7vMU" class="btn" style="margin-left:10px;">Open in VLC</a>
-        <p class="note">📱 For mobile: Open VLC → Stream → Paste link manually if VLC button doesn’t work.</p>
+        <a href="#" class="btn" onclick="showVideo()">Watch Now</a>
+        <a href="https://gplinks.co/eLIx1wXc" class="btn" style="margin-left:10px;" target="_blank">Download</a>
       </div>
     </div>
 
-    <!-- Embedded video (default playback inside website) -->
-    <div class="video-container">
+    <div class="video-container" id="videoBox">
       <iframe src="https://drive.google.com/file/d/1IRKQo9vC7oJFghEz0knWc74sREse7vMU/preview" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
@@ -69,5 +59,11 @@
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
+
+  <script>
+    function showVideo() {
+      document.getElementById("videoBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
