@@ -1,77 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Willow Live - LetzCine</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Fancode Live - LetzCine (Crichub)</title>  
 
-    header {
-      background: #111;
-      padding: 15px;
-      font-size: 24px;
-      color: #00ffc3;
-    }
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />  
 
-    video {
-      width: 100%;
-      height: auto;
-      max-width: 900px;
-      margin-top: 20px;
-    }
+  <style>  
+    body {  
+      margin: 0;  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      background-color: #0a0a0a;  
+      color: #fff;  
+    }  
 
-    .note, .btn {
-      margin-top: 15px;
-    }
+    header {  
+      background-color: #111;  
+      padding: 15px;  
+      text-align: center;  
+      font-size: 1.5em;  
+      font-weight: bold;  
+      color: #00ffc3;  
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);  
+    }  
 
-    .btn {
-      background: #00ffc3;
-      color: #000;
-      padding: 10px 20px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-    }
-  </style>
-</head>
-<body>
+    .content {  
+      padding: 10px;  
+      text-align: center;  
+    }  
 
-  <header>LetzCine - Willow Live</header>
+    .video-container {  
+      max-width: 900px;  
+      margin: auto;  
+      margin-top: 20px;  
+    }  
 
-  <video id="video" controls autoplay playsinline></video>
+    .video-js {  
+      width: 100%;  
+      height: 500px;  
+    }  
 
-  <p class="note">📱 Rotate your phone for full-screen. Use Chrome or Safari for best results.</p>
+    .note {  
+      margin-top: 15px;  
+      font-size: 0.9em;  
+      color: #999;  
+    }  
 
-  <a href="https://jan.bbplay.pro:8035/hls/willowuse.m3u8?md6=YT-bVP_fXMruvKWUWQ1MYg&expires=1753045711" class="btn" target="_blank">
-    ▶️ Open in VLC / NS Player
-  </a>
+    .btn {  
+      padding: 10px 20px;  
+      background: #00ffc3;  
+      border: none;  
+      border-radius: 5px;  
+      font-weight: bold;  
+      color: #000;  
+      cursor: pointer;  
+    }  
+  </style>  
+</head>  
+<body>  
 
-  <!-- HLS.js Player Script -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    const video = document.getElementById('video');
-    const videoSrc = "https://jan.bbplay.pro:8035/hls/willowuse.m3u8?md6=YT-bVP_fXMruvKWUWQ1MYg&expires=1753045711";
+  <header>  
+    LetzCine (Crichub) - Live Stream  
+  </header>  
 
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(videoSrc);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.ERROR, (event, data) => {
-        console.error("HLS.js error:", data);
-      });
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc;
-    } else {
-      alert("Your browser doesn't support this stream. Open in VLC or NS Player.");
-    }
-  </script>
-</body>
+  <div class="content">  
+    <h2>🏏 Live Match</h2>  
+
+    <div class="video-container">  
+      <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>  
+        <source src="https://in-mc-fdlive.fancode.com/mumbai/131276_english_hls_53629adfreeta-di_h264/1080p.m3u8" type="application/x-mpegURL" />  
+        Your browser does not support the video tag or HLS streaming.  
+      </video>  
+    </div>  
+
+    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>  
+    <p class="note">If it doesn’t play, open in VLC or NS Player:</p>  
+
+    <a href="https://in-mc-fdlive.fancode.com/mumbai/131276_english_hls_53629adfreeta-di_h264/1080p.m3u8" target="_blank">  
+      <button class="btn">▶️ Open in VLC / NS Player</button>  
+    </a>  
+  </div>  
+
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>  
+  <script>  
+    var player = videojs('live-stream');  
+  </script>  
+
+</body>  
 </html>
