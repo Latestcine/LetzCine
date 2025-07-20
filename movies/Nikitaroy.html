@@ -6,13 +6,6 @@
   <title>Nikita Roy - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
     .video-container {
       display: none;
       margin-top: 15px;
@@ -34,37 +27,35 @@
     .link-button {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #e50914;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
       color: #fff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 4px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
     }
 
     .link-button:hover {
-      background-color: #b00610;
+      background-color: #0056b3;
     }
 
     .card {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 30px auto;
       max-width: 500px;
+      margin: auto;
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
+    .card-content {
+      text-align: left;
     }
 
     footer {
+      text-align: center;
       margin-top: 30px;
       color: #888;
     }
   </style>
+
   <script>
     function redirectAndPlay() {
       sessionStorage.setItem("playMovie", "true");
@@ -87,18 +78,16 @@
 
   <section class="section">
     <div class="card">
-      <img src="../images/Nikitaroy.jpg" alt="Nikita Roy">
+      <img src="../images/Nikitaroy.jpg" alt="Nikita Roy" style="width: 100%; border-radius: 8px;">
       <div class="card-content">
         <h3>Nikita Roy (2025)</h3>
         <p>Hindi | Horror | Thriller</p>
 
-        <!-- Server 1 -->
+        <!-- Buttons in same line -->
         <a href="https://shrtlk.biz/NikitaRoy" target="_blank" class="link-button">Download</a>
+        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button">Watch Now</a>
 
-        <!-- Watch Now with redirect -->
-        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
-
-        <!-- Video container (hidden until return from ad) -->
+        <!-- Hidden Video -->
         <div id="videoBox" class="video-container">
           <iframe 
             src="https://drive.google.com/file/d/1YRyt9bi-_ga51D0L76KqQE2dnXacVimV/preview" 
