@@ -36,6 +36,20 @@
       background-color: #0056b3;
     }
   </style>
+  <script>
+    function redirectAndPlay() {
+      sessionStorage.setItem("playMovie", "true");
+      window.location.href = "https://shrtlk.biz/Maawatchnow";
+    }
+
+    window.onload = function () {
+      if (sessionStorage.getItem("playMovie") === "true") {
+        document.getElementById("videoBox").style.display = "block";
+        sessionStorage.removeItem("playMovie");
+        window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      }
+    };
+  </script>
 </head>
 <body>
   <header>
@@ -52,8 +66,8 @@
         <!-- Server 1: Download -->
         <a href="https://shrtlk.biz/Maa" target="_blank" class="link-button">Download</a>
 
-        <!-- Server 2: Watch Now -->
-        <a href="javascript:void(0)" onclick="showVideo()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+        <!-- Server 2: Watch Now with redirect -->
+        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
         <!-- Google Drive Video Embed (Hidden Initially) -->
         <div id="videoBox" class="video-container">
@@ -70,11 +84,5 @@
   <footer>
     &copy; 2025 LetzCine. All rights reserved.
   </footer>
-
-  <script>
-    function showVideo() {
-      document.getElementById("videoBox").style.display = "block";
-    }
-  </script>
 </body>
 </html>
