@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mitti Ek Nayi Pehchaan- LetzCine</title>
+  <title>Mitti Ek Nayi Pehchaan - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
     .video-container {
       display: none;
-      margin-top: 15px;
+      margin-top: 30px;
+    }
+
+    .episode {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      max-width: 100%;
+      margin-bottom: 30px;
     }
 
-    .video-container iframe {
+    .episode iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -26,8 +29,8 @@
 
     .link-button {
       display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
+      margin: 10px 5px;
+      padding: 10px 20px;
       background-color: #007bff;
       color: #fff;
       text-decoration: none;
@@ -38,18 +41,32 @@
     .link-button:hover {
       background-color: #0056b3;
     }
+
+    .card {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+    }
   </style>
+
   <script>
-    function redirectAndPlay() {
-      sessionStorage.setItem("playMovie", "true");
-      window.location.href = "https://shrtlk.biz/MittiWatch";
+    function redirectAndStore() {
+      sessionStorage.setItem("showEpisodes", "true");
+      window.location.href = "https://shrtlk.biz/MittiWatch"; // Your ad link
     }
 
     window.onload = function () {
-      if (sessionStorage.getItem("playMovie") === "true") {
-        document.getElementById("videoBox").style.display = "block";
-        sessionStorage.removeItem("playMovie");
-        window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      if (sessionStorage.getItem("showEpisodes") === "true") {
+        sessionStorage.removeItem("showEpisodes");
+        document.getElementById("videoSection").style.display = "block";
+        window.scrollTo({
+          top: document.getElementById("videoSection").offsetTop,
+          behavior: "smooth"
+        });
       }
     };
   </script>
@@ -60,26 +77,45 @@
   </header>
 
   <section class="section">
-    <div class="card" style="max-width: 500px; margin: auto;">
-      <img src="../images/Abc.jpg" alt="Mitti Ek Nayi Pehchaan">
+    <div class="card">
+      <img src="../images/Abc.jpg" alt="Mitti Ek Nayi Pehchaan" style="max-width: 100%;">
       <div class="card-content">
         <h3>Mitti Ek Nayi Pehchaan (2025)</h3>
-        <p>Hindi | Social Issue| Drama</p>
+        <p>Hindi | Social Issue | Drama</p>
 
-        <!-- Server 1 -->
         <a href="https://shrtlk.biz/Mitti" target="_blank" class="link-button">Download</a>
+        <a href="javascript:void(0)" onclick="redirectAndStore()" class="link-button">Watch</a>
+      </div>
 
-        <!-- Watch Now with redirect -->
-        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+      <div id="videoSection" class="video-container">
 
-        <!-- Google Drive Video Embed (Hidden Initially) -->
-        <div id="videoBox" class="video-container">
-          <iframe 
-            src="https://drive.google.com/drive/folders/12GAuH-mqmGwhC61Aw6K-BM_DfnV0MczS/preview" 
-            frameborder="0" 
-            allowfullscreen>
-          </iframe>
+        <h2>Watch All Episodes</h2>
+
+        <div class="episode"><h4>Episode 1</h4>
+          <iframe src="https://drive.google.com/file/d/13HBon1GgqwEpDZpbPbzvP38R1F15DPEf/preview" frameborder="0" allowfullscreen></iframe>
         </div>
+        <div class="episode"><h4>Episode 2</h4>
+          <iframe src="https://drive.google.com/file/d/12mBnSiyBWEr1O2lmuYok_MG8R74CLmgT/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 3</h4>
+          <iframe src="https://drive.google.com/file/d/13GlmgGgfOyZ1qb3UCY_bx9lDcTuYh8rH/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 4</h4>
+          <iframe src="https://drive.google.com/file/d/12zbEgkbwAGzMNYiWPC4Z3nScaZ8zBk5T/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 5</h4>
+          <iframe src="https://drive.google.com/file/d/12lfiqNQHJ2aKmvm4jI79rV36plhVVrgr/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 6</h4>
+          <iframe src="https://drive.google.com/file/d/12_cxVd7h75y3ijTsreltBdqhbQcqx0a4/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 7</h4>
+          <iframe src="https://drive.google.com/file/d/12iao1FhgwJb4kkpS1mBCL29Q8BG8jhJV/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 8</h4>
+          <iframe src="https://drive.google.com/file/d/12GO2orA85Es1yjf5aT_R_yJsGHFa9pFu/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+
       </div>
     </div>
   </section>
