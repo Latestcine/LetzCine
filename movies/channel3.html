@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Willow Live - LetzCine (Crichub)</title>
+  <title>Sky Sports Live - LetzCine (Crichub)</title>
 
   <style>
     body {
@@ -56,7 +56,7 @@
 </head>
 <body>
 
-  <header>LetzCine (Crichub) - Live Match 🎥</header>
+  <header>LetzCine (Crichub) - Sky Sports Live 🎥</header>
 
   <div class="video-container">
     <video id="video" controls autoplay playsinline></video>
@@ -64,7 +64,7 @@
     <p class="note">📱 Rotate phone for full screen. Works best in Chrome/Safari.</p>
     <p class="note">If it doesn’t play, open in VLC / NS / MX Player:</p>
 
-    <a href="https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imo1cnU2aWNIb2ZST3Nlc3BpZGVjNjR3MHM3bGdvOG90IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzI5MDE1NX0.S0xFQU5FTUJFRA" class="btn" target="_blank">
+    <a id="externalLink" href="#" class="btn" target="_blank">
       ▶️ Open in External Player
     </a>
   </div>
@@ -73,20 +73,26 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
-    const videoSrc ="https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI6Imo1cnU2aWNIb2ZST3Nlc3BpZGVjNjR3MHM3bGdvOG90IiwidHlwZSI6InBsYXlsaXN0X2FjY2VzcyIsImV4cCI6MTc1MzI5MDE1NX0.S0xFQU5FTUJFRA";
+    const externalBtn = document.getElementById('externalLink');
+
+    // Use your permanent smart API link
+    const streamUrl = "https://letz-cine-59v7.vercel.app/api/skysports";
 
     if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource(videoSrc);
+      hls.loadSource(streamUrl);
       hls.attachMedia(video);
-      hls.on(Hls.Events.ERROR, (event, data) => {
+      hls.on(Hls.Events.ERROR, function (event, data) {
         console.error("HLS.js error:", data);
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc;
+      video.src = streamUrl;
     } else {
       alert("Browser doesn't support this stream. Use VLC or MX Player.");
     }
+
+    // Update external player button with same auto-refresh URL
+    externalBtn.href = streamUrl;
   </script>
 </body>
 </html>
