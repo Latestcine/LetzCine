@@ -7,6 +7,8 @@
 
   <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-dash@2.11.0/dist/videojs-dash.min.js"></script>
 
   <style>
     body {
@@ -17,24 +19,23 @@
     }
 
     header {
-      background-color: #111;
+      background: linear-gradient(to right, #00ffc3, #111);
       padding: 15px;
       text-align: center;
-      font-size: 1.5em;
+      font-size: 1.6em;
       font-weight: bold;
-      color: #00ffc3;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     .content {
-      padding: 10px;
+      padding: 15px;
       text-align: center;
     }
 
     .video-container {
       max-width: 900px;
-      margin: auto;
-      margin-top: 20px;
+      margin: 20px auto;
     }
 
     .video-js {
@@ -43,25 +44,35 @@
     }
 
     .note {
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 0.9em;
-      color: #999;
+      color: #ccc;
     }
 
     .button-link {
       display: inline-block;
-      margin: 10px 10px;
+      margin: 10px;
       background: #00ffc3;
       color: #000;
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
+      transition: 0.3s ease;
     }
 
-    hr {
-      margin: 30px 0;
-      border: 1px solid #222;
+    .button-link:hover {
+      background: #00e0aa;
+    }
+
+    @media screen and (max-width: 768px) {
+      .video-js {
+        height: 240px;
+      }
+
+      header {
+        font-size: 1.2em;
+      }
     }
   </style>
 </head>
@@ -73,12 +84,15 @@
 
   <div class="content">
     <h2>📺 Live Cricket Match Streaming</h2>
-    <p>🕒 Starts Soon · English/Kannada/Hindi Commentary</p>
+    <p>🕒 Starts Soon · English / Kannada / Hindi Commentary</p>
 
     <div class="video-container">
       <video id="live-stream" class="video-js vjs-default-skin" controls autoplay playsinline>
-        <source src="https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70" type="application/x-mpegURL" />
-        Your browser does not support the video tag or HLS streaming.
+        <!-- DASH Stream -->
+        <source src="https://sundirectgo-live.pc.cdn.bitgravity.com/hd38/dth.mpd" type="application/dash+xml" />
+        <!-- Optional Fallback: m3u8 -->
+        <!-- <source src="https://example.com/fallback.m3u8" type="application/x-mpegURL" /> -->
+        Your browser does not support the video tag or DASH streaming.
       </video>
     </div>
 
@@ -92,11 +106,9 @@
       </a>
     </div>
 
-    <p class="note">🔁 If stream doesn’t start, it will auto-load once the match goes live.<br>📱 Rotate your phone for full-screen experience.</p>
+    <p class="note">🔁 If the stream doesn’t start immediately, it will auto-load once the match goes live.<br>📱 Rotate your phone for better full-screen viewing.</p>
   </div>
 
-  <!-- Video.js JS -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
     var player = videojs('live-stream');
   </script>
