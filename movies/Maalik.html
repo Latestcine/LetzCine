@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maalik - LetzCine</title>
+  <title>Maalik – LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
     .video-container {
@@ -36,17 +36,26 @@
       background-color: #0056b3;
     }
   </style>
+
   <script>
-    function redirectAndPlay() {
-      sessionStorage.setItem("playMovie", "true");
+    // Set watch intent before going to shortlink
+    function redirectToAd() {
+      sessionStorage.setItem("watchIntent", "true");
       window.location.href = "https://shrtlk.biz/MaalikWatch";
     }
 
+    // On page load: verify if access is granted and user clicked watch
     window.onload = function () {
-      if (sessionStorage.getItem("playMovie") === "true") {
+      const params = new URLSearchParams(window.location.search);
+      const access = params.get("access");
+      const intent = sessionStorage.getItem("watchIntent");
+
+      if (access === "granted" && intent === "true") {
         document.getElementById("videoBox").style.display = "block";
-        sessionStorage.removeItem("playMovie");
+        sessionStorage.removeItem("watchIntent");
         window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      } else {
+        document.getElementById("videoBox").style.display = "none";
       }
     };
   </script>
@@ -63,13 +72,13 @@
         <h3>Maalik (2025)</h3>
         <p>Hindi | Gangster | Drama</p>
 
-        <!-- Download or External Server Links -->
+        <!-- Download Button -->
         <a href="https://shrtlk.biz/MAALIK" target="_blank" class="link-button">Download</a>
 
-        <!-- Watch Now with Redirect -->
-        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+        <!-- Watch Now triggers session intent + redirects -->
+        <a href="javascript:void(0)" onclick="redirectToAd()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
-        <!-- Google Drive Video Embed (Hidden Initially) -->
+        <!-- Hidden video embed – only shown after valid access -->
         <div id="videoBox" class="video-container">
           <iframe 
             src="https://drive.google.com/file/d/1k0m_SbOiA72kmY1mukWw5p3KCNhj6JI4/preview" 
