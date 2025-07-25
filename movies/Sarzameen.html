@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sarzameen – LetzCine</title>
+  <title>Sarzameen - LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
     .video-container {
@@ -41,22 +41,16 @@
   </style>
 
   <script>
-    function redirectToAd() {
-      sessionStorage.setItem("watchIntent", "yes");
-      window.location.href = "https://shrtlk.biz/Sarzameenwatch"; // Your shortlink should redirect back with ?access=granted
+    function redirectAndPlay() {
+      sessionStorage.setItem("playMovie", "true");
+      window.location.href = "https://shrtlk.biz/Sarzameenwatch";
     }
 
     window.onload = function () {
-      const params = new URLSearchParams(window.location.search);
-      const access = params.get("access");
-      const intent = sessionStorage.getItem("watchIntent");
-
-      if (access === "granted" && intent === "yes") {
+      if (sessionStorage.getItem("playMovie") === "true") {
         document.getElementById("videoBox").style.display = "block";
+        sessionStorage.removeItem("playMovie");
         window.scrollTo(0, document.getElementById("videoBox").offsetTop);
-        sessionStorage.removeItem("watchIntent"); // Only allow once
-      } else {
-        document.getElementById("videoBox").style.display = "none";
       }
     };
   </script>
@@ -74,8 +68,7 @@
         <p>Hindi | Thriller | Action</p>
 
         <a href="https://shrtlk.biz/Sarzameen" target="_blank" class="link-button">Download</a>
-
-        <a href="javascript:void(0)" onclick="redirectToAd()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
         <div id="videoBox" class="video-container">
           <iframe 
