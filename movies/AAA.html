@@ -6,9 +6,43 @@
   <title>Edagaiye Apaghatakke Karana – LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding: 20px;
+    }
+
+    .movie-title {
+      font-size: 2rem;
+      color: #00ffd5;
+    }
+
+    .meta {
+      font-size: 1rem;
+      margin: 10px 0;
+      color: #aaaaaa;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff0066;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .link-button:hover {
+      background-color: #ff3388;
+    }
+
     .video-container {
       display: none;
-      margin-top: 15px;
+      margin-top: 20px;
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
@@ -22,77 +56,54 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 12px;
     }
 
-    .link-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
     }
 
-    .link-button:hover {
-      background-color: #0056b3;
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
   </style>
 
   <script>
-    window.onload = function () {
-      const params = new URLSearchParams(window.location.search);
-      const access = params.get("access");
-      const intent = sessionStorage.getItem("watchIntent");
-
-      if (access === "granted" && intent === "yes") {
-        document.getElementById("videoBox").style.display = "block";
-        window.scrollTo(0, document.getElementById("videoBox").offsetTop);
-        sessionStorage.removeItem("watchIntent");
-      } else {
-        document.getElementById("videoBox").style.display = "none";
-      }
-    };
-
-    function redirectToAd() {
-      sessionStorage.setItem("watchIntent", "yes");
-      window.location.href = "https://shrtlk.biz/Edagaiye99";
+    function redirectAndPlay() {
+      document.getElementById("videoBox").style.display = "block";
+      window.scrollTo({ top: document.getElementById("videoBox").offsetTop, behavior: 'smooth' });
     }
   </script>
 </head>
 <body>
-  <header>
-    <h1>LetzCine</h1>
-  </header>
 
-  <section class="section">
-    <div class="card" style="max-width: 500px; margin: auto;">
-      <img src="../images/AAA.jpg" alt="Edagaiye Apaghatakke Karana">
-      <div class="card-content">
-        <h3>Edagaiye Apaghatakke Karana (2025)</h3>
-        <p>Kannada | Thriller | Comedy</p>
+  <h1 class="movie-title">🎬 Edagaiye Apaghatakke Karana</h1>
+  <h3 class="meta">Edagaiye Apaghatakke Karana (2025)</h3>
+  <p class="meta">Kannada | Thriller | Comedy</p>
 
-        <!-- Download Link -->
-        <a href="https://shrtlk.biz/Edagaiye9" target="_blank" class="link-button">Server 1 (Download)</a>
+  <!-- Poster -->
+  <img src="../images/AAA.jpg" alt="Edagaiye Apaghatakke Karana Poster">
 
-        <!-- Watch Now Link -->
-        <a href="javascript:void(0)" onclick="redirectToAd()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+  <!-- Download and Watch Buttons -->
+  <a href="https://shrtlk.biz/Edagaiye9" target="_blank" class="link-button">Download</a>
+  <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
-        <!-- Hidden Video Embed -->
-        <div id="videoBox" class="video-container">
-          <iframe 
-            src="https://drive.google.com/file/d/165HUlcUB3I1tSYH6vQEwydRG4JSExZAp/preview" 
-            frameborder="0" 
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Hidden Video -->
+  <div id="videoBox" class="video-container">
+    <iframe 
+      src="https://drive.google.com/file/d/165HUlcUB3I1tSYH6vQEwydRG4JSExZAp/preview" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <footer>
-    &copy; 2025 LetzCine. All rights reserved.
-  </footer>
+  <footer>© 2025 LetzCine. All rights reserved.</footer>
+
 </body>
 </html>
