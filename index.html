@@ -9,25 +9,24 @@
   <style>
   /* Fix unwanted gaps between sections */
   section.section {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+  html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
-  #ad-container {
-    margin: 0;
-    padding: 0;
-    height: 0;
-  }
+.section {
+  padding-top: 10px;
+  padding-bottom: 0px; /* Tighten bottom space */
+  margin-bottom: 0px;
+}
 
-  #ad-container:empty {
-    display: none !important;
-  }
-
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0;
+footer {
+  margin-top: 0px;
+  padding-top: 10px;
+  background-color: #eee;
+}
   }
   </style>
 </head>
