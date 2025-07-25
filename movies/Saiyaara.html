@@ -41,15 +41,21 @@
   </style>
   <script>
     function redirectAndPlay() {
-      sessionStorage.setItem("playMovie", "true");
+      sessionStorage.setItem("watchIntent", "true");
       window.location.href = "https://shrtlk.biz/Saiyaarawatchnow";
     }
 
     window.onload = function () {
-      if (sessionStorage.getItem("playMovie") === "true") {
+      const params = new URLSearchParams(window.location.search);
+      const access = params.get("access");
+      const intent = sessionStorage.getItem("watchIntent");
+
+      if (access === "granted" && intent === "true") {
         document.getElementById("videoBox").style.display = "block";
-        sessionStorage.removeItem("playMovie");
+        sessionStorage.removeItem("watchIntent");
         window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      } else {
+        document.getElementById("videoBox").style.display = "none";
       }
     };
   </script>
