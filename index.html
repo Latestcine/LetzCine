@@ -502,3 +502,11 @@
     }
   });
 </script>
+  
+  <script>
+  document.querySelectorAll('#ad-container').forEach(ad => {
+    if (ad.innerHTML.trim() === '' || ad.offsetHeight < 10) {
+      ad.style.display = 'none';
+    }
+  });
+  </script>
