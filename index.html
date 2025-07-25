@@ -8,27 +8,39 @@
    <link rel="stylesheet" href="style.css" />
   <style>
   /* Fix unwanted gaps between sections */
+<style>
   section.section {
-  html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-.section {
-  padding-top: 10px;
-  padding-bottom: 0px; /* Tighten bottom space */
-  margin-bottom: 0px;
-}
-
-footer {
-  margin-top: 0px;
-  padding-top: 10px;
-  background-color: #eee;
-}
+    margin: 0 !important;
+    padding: 0 !important;
   }
-  </style>
+
+  .grid {
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .card {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #ad-container:empty,
+  #ad-container {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+  }
+
+  footer {
+    margin-top: 0 !important;
+  }
+
+  br, hr {
+    display: none !important;
+  }
+</style>
 </head>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WZPRLJP86"></script>
