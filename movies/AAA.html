@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Edagaiye Apaghatakke Karana LetzCine</title>
+  <title>Edagaiye Apaghatakke Karana – LetzCine</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
     .video-container {
@@ -42,18 +42,23 @@
 
   <script>
     window.onload = function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const access = urlParams.get("access");
+      const params = new URLSearchParams(window.location.search);
+      const access = params.get("access");
+      const intent = sessionStorage.getItem("watchIntent");
 
-      // If access granted, show video
-      if (access === "granted") {
+      if (access === "granted" && intent === "yes") {
         document.getElementById("videoBox").style.display = "block";
         window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+        sessionStorage.removeItem("watchIntent");
       } else {
-        // If not coming from shortlink with ?access=granted, force them back
-        window.location.href = "https://shrtlk.biz/Edagaiye99";
+        document.getElementById("videoBox").style.display = "none";
       }
     };
+
+    function redirectToAd() {
+      sessionStorage.setItem("watchIntent", "yes");
+      window.location.href = "https://shrtlk.biz/Edagaiye99";
+    }
   </script>
 </head>
 <body>
@@ -68,13 +73,13 @@
         <h3>Edagaiye Apaghatakke Karana (2025)</h3>
         <p>Kannada | Thriller | Comedy</p>
 
-        <!-- Server 1: Direct Download Shortlink -->
-        <a href="https://shrtlk.biz/Edagaiye9" target="_blank" class="link-button">Download</a>
+        <!-- Download Link -->
+        <a href="https://shrtlk.biz/Edagaiye9" target="_blank" class="link-button">Server 1 (Download)</a>
 
-        <!-- Watch Now: Shortlink Ad that redirects with ?access=granted -->
-        <a href="https://shrtlk.biz/Edagaiye99" class="link-button" style="margin-left: 10px;">Watch Now</a>
+        <!-- Watch Now Link -->
+        <a href="javascript:void(0)" onclick="redirectToAd()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
-        <!-- Hidden Video Embed (Only shown with ?access=granted) -->
+        <!-- Hidden Video Embed -->
         <div id="videoBox" class="video-container">
           <iframe 
             src="https://drive.google.com/file/d/165HUlcUB3I1tSYH6vQEwydRG4JSExZAp/preview" 
