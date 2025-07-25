@@ -468,15 +468,26 @@
     &copy; 2025 LetzCine. All rights reserved.
   </footer> 
   <script>
-    // Real-time search filter for movie cards
+    
+   // Real-time search filter for movie cards
     document.getElementById('searchInput').addEventListener('input', function () {
       const query = this.value.toLowerCase();
       const cards = document.querySelectorAll('.card');
-
+  
       cards.forEach(card => {
         const content = card.innerText.toLowerCase();
         card.style.display = content.includes(query) ? '' : 'none';
       });
     });
   </script>
-    
+  
+    <script>
+  document.querySelectorAll('#ad-container').forEach(ad => {
+    if (!ad.innerHTML.trim()) {
+      ad.style.display = 'none';
+      ad.style.height = '0';
+      ad.style.margin = '0';
+      ad.style.padding = '0';
+    }
+  });
+</script>
