@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Edagaiye Apaghatakke Karana LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .video-container {
+      display: none;
+      margin-top: 15px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const access = urlParams.get("access");
+
+      // If access granted, show video
+      if (access === "granted") {
+        document.getElementById("videoBox").style.display = "block";
+        window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      } else {
+        // If not coming from shortlink with ?access=granted, force them back
+        window.location.href = "https://shrtlk.biz/Edagaiye99";
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
+
+  <section class="section">
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <img src="../images/AAA.jpg" alt="Edagaiye Apaghatakke Karana">
+      <div class="card-content">
+        <h3>Edagaiye Apaghatakke Karana (2025)</h3>
+        <p>Kannada | Thriller | Comedy</p>
+
+        <!-- Server 1: Direct Download Shortlink -->
+        <a href="https://shrtlk.biz/Edagaiye9" target="_blank" class="link-button">Download</a>
+
+        <!-- Watch Now: Shortlink Ad that redirects with ?access=granted -->
+        <a href="https://shrtlk.biz/Edagaiye99" class="link-button" style="margin-left: 10px;">Watch Now</a>
+
+        <!-- Hidden Video Embed (Only shown with ?access=granted) -->
+        <div id="videoBox" class="video-container">
+          <iframe 
+            src="https://drive.google.com/file/d/165HUlcUB3I1tSYH6vQEwydRG4JSExZAp/preview" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
+</body>
+</html>
