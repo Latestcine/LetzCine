@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mandal Murders - LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .video-container {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .episode {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .episode iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+
+    .card {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <script>
+    function redirectAndStore() {
+      sessionStorage.setItem("showEpisodes", "true");
+      window.location.href = "https://shrtlk.biz/Mandal99"; // Updated ad link
+    }
+
+    window.onload = function () {
+      if (sessionStorage.getItem("showEpisodes") === "true") {
+        sessionStorage.removeItem("showEpisodes");
+        document.getElementById("videoSection").style.display = "block";
+        window.scrollTo({
+          top: document.getElementById("videoSection").offsetTop,
+          behavior: "smooth"
+        });
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
+
+  <section class="section">
+    <div class="card">
+      <img src="../images/WWW.jpg" alt="Mandal Murders" style="max-width: 100%;">
+      <div class="card-content">
+        <h3>Mandal Murders (2025)</h3>
+        <p>Hindi | Crime | Thriller</p>
+
+        <a href="https://shrtlk.biz/Mandal" target="_blank" class="link-button">Download</a>
+        <a href="javascript:void(0)" onclick="redirectAndStore()" class="link-button">Watch</a>
+      </div>
+
+      <div id="videoSection" class="video-container">
+        <h2>Watch All Episodes</h2>
+
+        <div class="episode"><h4>Episode 1</h4>
+          <iframe src="https://drive.google.com/file/d/1f4YIfgQyHohSRVEhpwL5ES_1nkfEchVI/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 2</h4>
+          <iframe src="https://drive.google.com/file/d/1fSes4yk1dVhGdu5y6w1dw348oW12zcwe/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 3</h4>
+          <iframe src="https://drive.google.com/file/d/1fLYXHJ2mrJpAWraOVI61B02Z0YaJjVHn/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 4</h4>
+          <iframe src="https://drive.google.com/file/d/1fMcbzdw1LuV6yanBzZJOCn0zlrTzRYb_/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 5</h4>
+          <iframe src="https://drive.google.com/file/d/1fOV2OSJMw9Y-9zGhH5OJn7tpMSmFkpFL/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 6</h4>
+          <iframe src="https://drive.google.com/file/d/1fTfhhnaBUY4kXg2juo-2l32u6thmUW_y/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 7</h4>
+          <iframe src="https://drive.google.com/file/d/1fRePqC4j7lT4GRSUIuLZt_ekxdxo2UZF/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 8</h4>
+          <iframe src="https://drive.google.com/file/d/1fFPI1gYdeflvVdbMbspDFC-ZLewdcylh/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
+</body>
+</html>
