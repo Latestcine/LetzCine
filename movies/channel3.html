@@ -1,78 +1,90 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-  <title>Willow Live - LetzCine (Crichub)</title>    <style>  
-    body {  
-      margin: 0;  
-      background-color: #0a0a0a;  
-      color: #fff;  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-      text-align: center;  
-    }  
-  
-    header {  
-      background-color: #111;  
-      padding: 15px;  
-      font-size: 24px;  
-      font-weight: bold;  
-      color: #00ffc3;  
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);  
-    }  
-  
-    .video-container {  
-      max-width: 900px;  
-      margin: 20px auto;  
-    }  
-  
-    video {  
-      width: 100%;  
-      height: 500px;  
-      background: #000;  
-    }  
-  
-    .note {  
-      font-size: 0.9em;  
-      color: #ccc;  
-      margin-top: 10px;  
-    }  
-  
-    .btn {  
-      display: inline-block;  
-      margin-top: 15px;  
-      padding: 10px 20px;  
-      background: #00ffc3;  
-      border: none;  
-      border-radius: 5px;  
-      font-weight: bold;  
-      color: #000;  
-      text-decoration: none;  
-      cursor: pointer;  
-    }  
-  </style>  </head>  
-<body>    <header>LetzCine (Crichub) - Live Match 🎥</header>    <div class="video-container">  
-    <video id="video" controls autoplay playsinline></video>  <p class="note">📱 Rotate phone for full screen. Works best in Chrome/Safari.</p>  
-<p class="note">If it doesn’t play, open in VLC / NS / MX Player:</p>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Willow Live - LetzCine (Crichub)</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
 
-<a href="https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI" class="btn" target="_blank">  
-  ▶️ Open in External Player  
-</a>
+    header {
+      background-color: #111;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffc3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
 
-  </div>    <!-- HLS.js script -->    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>    <script>  
-    const video = document.getElementById('video');  
-    const videoSrc ="https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI";  
-  
-    if (Hls.isSupported()) {  
-      const hls = new Hls();  
-      hls.loadSource(videoSrc);  
-      hls.attachMedia(video);  
-      hls.on(Hls.Events.ERROR, (event, data) => {  
-        console.error("HLS.js error:", data);  
-      });  
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {  
-      video.src = videoSrc;  
-    } else {  
-      alert("Browser doesn't support this stream. Use VLC or MX Player.");  
-    }  
-  </script>  </body>  
+    .video-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    video {
+      width: 100%;
+      height: 500px;
+      background: #000;
+    }
+
+    .note {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ffc3;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>LetzCine (Crichub) - Live Match 🎥</header>
+
+  <div class="video-container">
+    <video id="video" controls autoplay playsinline></video>
+    <p class="note">📱 Rotate phone for full screen. Works best in Chrome/Safari.</p>
+    <p class="note">If it doesn’t play, open in VLC / NS / MX Player:</p>
+
+    <a href="https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI" class="btn" target="_blank">
+      ▶️ Open in External Player
+    </a>
+  </div>
+
+  <!-- HLS.js script -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = "https://subrugopuciblchlvl6uqa666p23rig.happy-ending.site/klean/j5ru6icHofROsespidec64w0s7lgo8ot.m3u8?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHJlYW1JZCI";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.ERROR, function (event, data) {
+        console.error("HLS.js error:", data);
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    } else {
+      alert("Browser doesn't support this stream. Please use VLC or MX Player.");
+    }
+  </script>
+</body>
 </html>
