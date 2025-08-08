@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salakaar S1 - LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .video-container {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .episode {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .episode iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+
+    .card {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <script>
+    function redirectAndStore() {
+      sessionStorage.setItem("showEpisodes", "true");
+      window.location.href = "https://srtslug.biz/Salakaarwatch";
+    }
+
+    window.onload = function () {
+      if (sessionStorage.getItem("showEpisodes") === "true") {
+        sessionStorage.removeItem("showEpisodes");
+        document.getElementById("videoSection").style.display = "block";
+        window.scrollTo({
+          top: document.getElementById("videoSection").offsetTop,
+          behavior: "smooth"
+        });
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
+
+  <section class="section">
+    <div class="card">
+      <img src="../images/Salakaar.jpg" alt="Salakaar" style="max-width: 100%;">
+      <div class="card-content">
+        <h3>Salakaar (2025)</h3>
+        <p>Hindi | Crime | Thriller</p>
+
+        <a href="https://srtslug.biz/Salakaar" target="_blank" class="link-button">Download</a>
+        <a href="javascript:void(0)" onclick="redirectAndStore()" class="link-button">Watch</a>
+      </div>
+
+      <div id="videoSection" class="video-container">
+        <h2>Watch All Episodes</h2>
+
+        <div class="episode"><h4>Episode 1</h4>
+          <iframe src="https://drive.google.com/file/d/1GGt70AQsQYVNIYgAkXqFudCnK2eOW4nu/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 2</h4>
+          <iframe src="https://drive.google.com/file/d/1GLLT24MuuQVdtepzjTFaLleLSldaWDW0/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 3</h4>
+          <iframe src="https://drive.google.com/file/d/1GN4dk7lzlSnzfhd_GdlOf_6RYs6h9pUR/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 4</h4>
+          <iframe src="https://drive.google.com/file/d/1GOW9xLUtjv-2v6B9rXueCuJCTp66Al-T/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="episode"><h4>Episode 5</h4>
+          <iframe src="https://drive.google.com/file/d/1GPqHuzhNJzPfGBVOm0no6Xv2uC-nqTrv/preview" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
+</body>
+        </html>
