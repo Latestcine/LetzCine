@@ -1,135 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Coolie (2025) - LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
   <style>
-    :root{
-      --bg:#0a0a0a; --card:#1b1b1b; --muted:#9aa0a6; --accent:#ff5722; --btn:#ff3d00;
+    .video-container {
+      display: none;
+      margin-top: 15px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:#fff;font-family:system-ui,Segoe UI,Roboto,Arial;}
-    header{background:#111;padding:18px;text-align:center;font-size:1.6rem;color:#ff3b3b;font-weight:700}
-    .container{max-width:820px;margin:28px auto;padding:18px}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
-    .poster{width:100%;border-radius:8px;display:block}
-    h2{color:#ff4d4d;margin:12px 0}
-    .meta{color:var(--muted);margin-bottom:12px}
-    .actions{margin:12px 0;display:flex;gap:10px;flex-wrap:wrap}
-    .link-button{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;background:var(--accent);color:#fff;border:0;cursor:pointer}
-    .link-button.secondary{background:#333}
-    .video-area{display:none;margin-top:18px;border-radius:8px;padding:12px;background:#000}
-    .player-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000}
-    .player-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-    .audio-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;justify-content:center}
-    .audio-button{padding:10px 14px;border-radius:8px;background:#222;color:#ffd54a;font-weight:700;border:0;cursor:pointer}
-    .audio-button:hover{filter:brightness(.95)}
-    footer{margin-top:30px;padding:18px;text-align:center;color:#777;background:#0b0b0b}
-    .small{font-size:.9rem;color:var(--muted);margin-top:8px}
-    @media (max-width:520px){ .actions{justify-content:center} }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .link-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+    .lang-title {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffcc00;
+      text-align: center;
+    }
   </style>
+
+  <script>
+    function redirectAndPlay() {
+      sessionStorage.setItem("playMovie", "true");
+      window.location.href = "https://srtslug.biz/Cooliewatch";
+    }
+    window.onload = function () {
+      if (sessionStorage.getItem("playMovie") === "true") {
+        document.getElementById("videoBoxHindi").style.display = "block";
+        document.getElementById("videoBoxTamil").style.display = "block";
+        sessionStorage.removeItem("playMovie");
+        window.scrollTo(0, document.getElementById("videoBoxHindi").offsetTop);
+      }
+    };
+  </script>
 </head>
 <body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
 
-<header>LetzCine</header>
+  <section class="section">
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <img src="../images/Coolie100.jpg" alt="Coolie (2025)">
+      <div class="card-content">
+        <h3>Coolie (2025)</h3>
+        <p>Multi-Language | Action | Drama</p>
 
-<div class="container">
-  <div class="card">
-    <img class="poster" src="../images/Coolie100.jpg" alt="Coolie (2025) poster">
+        <!-- Download -->
+        <a href="https://srtslug.biz/Coolie" target="_blank" class="link-button">Download</a>
 
-    <h2>Coolie (2025)</h2>
-    <div class="meta">Multi-Language | Action | Drama</div>
+        <!-- Watch Now with redirect -->
+        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
 
-    <div class="actions">
-      <!-- Download stays visible outside -->
-      <a class="link-button" href="https://srtslug.biz/Coolie" target="_blank" rel="noopener">⬇️ Download</a>
+        <!-- Hindi Audio Player -->
+        <div class="lang-title">🎧 Hindi Audio</div>
+        <div id="videoBoxHindi" class="video-container">
+          <iframe 
+            src="https://drive.google.com/file/d/1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg/preview" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
 
-      <!-- Watch Now opens video area (no redirect) -->
-      <button id="watchBtn" class="link-button secondary" type="button">▶ Watch Now</button>
-    </div>
-
-    <div id="videoArea" class="video-area" aria-hidden="true">
-      <div class="player-wrap" id="playerWrap">
-        <!-- main player iframe; src set dynamically -->
-        <iframe id="mainPlayer" src="" allowfullscreen loading="lazy" title="Coolie player"></iframe>
+        <!-- Tamil Audio Player -->
+        <div class="lang-title">🎧 Tamil Audio</div>
+        <div id="videoBoxTamil" class="video-container">
+          <iframe 
+            src="https://drive.google.com/file/d/1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue/preview" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
-
-      <div class="audio-actions" id="audioActions" aria-hidden="true">
-        <!-- Buttons both open Drive view in new tab AND replace the embedded player -->
-        <button class="audio-button" id="btnHindi" type="button" aria-label="Open Hindi Audio">🎧 Hindi Audio</button>
-        <button class="audio-button" id="btnTamil" type="button" aria-label="Open Tamil Audio">🎧 Tamil Audio</button>
-      </div>
-
-      <div class="small">Click an audio button to open in a new tab and to play inline.</div>
     </div>
-  </div>
-</div>
+  </section>
 
-<footer>© 2025 LetzCine. All rights reserved.</footer>
-
-<script>
-  // === YOUR LINKS / DRIVE IDS ===
-  // view links (open in new tab)
-  const HINDI_VIEW = "https://drive.google.com/file/d/1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg/view?usp=drivesdk";
-  const TAMIL_VIEW = "https://drive.google.com/file/d/1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue/view?usp=drivesdk";
-
-  // embed links for iframe (uc preview)
-  const HINDI_EMBED = "https://drive.google.com/uc?export=preview&id=1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg";
-  const TAMIL_EMBED = "https://drive.google.com/uc?export=preview&id=1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue";
-
-  // Optional: default player when user first clicks Watch Now
-  const DEFAULT_EMBED = HINDI_EMBED; // show Hindi by default — change to TAMIL_EMBED if you prefer
-
-  // === ELEMENTS ===
-  const watchBtn = document.getElementById("watchBtn");
-  const videoArea = document.getElementById("videoArea");
-  const audioActions = document.getElementById("audioActions");
-  const mainPlayer = document.getElementById("mainPlayer");
-  const btnHindi = document.getElementById("btnHindi");
-  const btnTamil = document.getElementById("btnTamil");
-
-  // Show the video area and load default embed. Also scroll to player.
-  function openPlayer() {
-    // reveal UI
-    videoArea.style.display = "block";
-    videoArea.setAttribute("aria-hidden","false");
-    audioActions.setAttribute("aria-hidden","false");
-
-    // set iframe src to default
-    mainPlayer.src = DEFAULT_EMBED;
-
-    // smooth scroll to the player (modern browsers)
-    setTimeout(()=> {
-      videoArea.scrollIntoView({behavior:"smooth", block:"start"});
-    },100);
-  }
-
-  // When Watch Now clicked:
-  watchBtn.addEventListener("click", function(){
-    openPlayer();
-  });
-
-  // When audio button clicked:
-  // open in new tab AND set iframe src to corresponding embed so it plays inline
-  btnHindi.addEventListener("click", function(){
-    // open view page in new tab
-    window.open(HINDI_VIEW, "_blank", "noopener");
-    // replace the embedded player source
-    mainPlayer.src = HINDI_EMBED;
-  });
-
-  btnTamil.addEventListener("click", function(){
-    window.open(TAMIL_VIEW, "_blank", "noopener");
-    mainPlayer.src = TAMIL_EMBED;
-  });
-
-  // Accessibility: allow keyboard activation
-  btnHindi.addEventListener("keyup", function(e){ if(e.key === "Enter") btnHindi.click(); });
-  btnTamil.addEventListener("keyup", function(e){ if(e.key === "Enter") btnTamil.click(); });
-
-  // Defensive: ensure content not auto-loaded until user asks (helps some browsers)
-  mainPlayer.src = ""; // keep empty until Watch Now / button click
-</script>
-
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
 </body>
 </html>
