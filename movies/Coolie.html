@@ -1,83 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coolie (2025) - LetzCine</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #0a0a0a; color: white; }
-    header { background: #111; padding: 15px; text-align: center; font-size: 1.5em; font-weight: bold; color: red; }
-    .container { padding: 15px; }
-    .poster { width: 100%; border-radius: 10px; }
-    h1 { color: #ff4444; }
-    .btn { display: inline-block; padding: 10px 15px; margin: 5px; border-radius: 5px; text-decoration: none; font-weight: bold; }
-    .btn-red { background: red; color: white; }
-    .btn-blue { background: #00aaff; color: white; }
-    .btn-dark { background: #333; color: white; }
-    .tab { display: inline-block; padding: 8px 12px; margin: 5px 5px 15px 0; border-radius: 5px; cursor: pointer; font-weight: bold; }
-    .tab-active { background: #00aaff; color: white; }
-    .tab-inactive { background: #333; color: white; }
-    .tab-content { display: none; margin-top: 10px; }
-    .tab-content.active { display: block; }
-    iframe { width: 100%; height: 400px; border: none; border-radius: 10px; }
-  </style>
-  <script>
-    function openTab(tabName) {
-      var tabs = document.getElementsByClassName("tab-content");
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].classList.remove("active");
-      }
-      document.getElementById(tabName).classList.add("active");
+<!DOCTYPE html><html lang="en">  <head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Coolie – LetzCine</title>  
+  <link rel="stylesheet" href="../style.css" />  
+  <style>  
+    :root {  
+      --brand: #0ea5e9;  
+      --brand-dark: #0284c7;  
+      --bg: #0a0a0a;  
+      --fg: #e5e7eb;  
+      --muted: #9ca3af;  
+      --card: #111827;  
+      --accent: #1f2937;  
+    }  
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-family: system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif; }  
+    header, footer { text-align: center; padding: 18px 12px; }  
+    header h1 { margin: 0; font-size: 1.5rem; }  
+    .section { padding: 20px 12px 48px; }  
+    .card { background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgb(0 0 0 / 40%); }  
+    .banner { display:block; width:100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }  
+    .card-content { padding: 16px; }  
+    .meta { margin: 6px 0 14px; color: var(--muted); font-size: 0.95rem; }  
+    .btns { display:flex; gap:10px; flex-wrap: wrap; }  
+    .link-button { display: inline-block; padding: 10px 16px; background-color: var(--brand); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 700; border: 0; cursor: pointer; }  
+    .link-button:hover { background-color: var(--brand-dark); }  
+    .video-wrap { display:none; margin-top: 16px; }  
+    .audio-tabs { display:flex; gap:8px; margin-bottom: 10px; }  
+    .tab { padding: 8px 12px; background: var(--accent); color: var(--fg); border: 0; border-radius: 999px; cursor: pointer; font-weight: 600; }  
+    .tab[aria-selected="true"] { background: var(--brand); }  
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; background: #000; }  
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }  
+    .badge { display:inline-flex; align-items:center; gap:8px; padding: 8px 12px; border-radius: 999px; background: #111; color: #ddd; font-size: 0.9rem; margin: 6px 0 14px; }  
+    .badge svg { width:18px; height:18px; }  
+    .legal { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }  
+  </style>  <script>  
+    const WATCH_URL = "https://srtslug.biz/Cooliewatch";  
+    const DOWNLOAD_URL = "https://srtslug.biz/Coolie";  
+    const TAMIL_DRIVE_ID = "https://drive.google.com/file/d/1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue/preview";  
+    const HINDI_DRIVE_ID = "https://drive.google.com/file/d/1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg/preview";  function gdrivePreviewSrc(fileId){  
+  return `https://drive.google.com/file/d/${fileId}/preview`;  
+}  
 
-      var buttons = document.getElementsByClassName("tab");
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove("tab-active");
-        buttons[i].classList.add("tab-inactive");
-      }
-      document.getElementById(tabName + "-btn").classList.add("tab-active");
-    }
-  </script>
-</head>
-<body>
+function redirectAndPlay(audio) {  
+  sessionStorage.setItem("playMovie", "true");  
+  sessionStorage.setItem("audio", audio);  
+  window.location.href = WATCH_URL;  
+}  
 
-<header>LetzCine</header>
+function showPlayer(which){  
+  const wrap = document.getElementById("videoWrap");  
+  const tamil = document.getElementById("tamilFrame");  
+  const hindi = document.getElementById("hindiFrame");  
+  const tTab = document.getElementById("tabTamil");  
+  const hTab = document.getElementById("tabHindi");  
 
-<div class="container">
-  <img src="Coolie100.jpg" alt="Coolie Poster" class="poster">
+  wrap.style.display = "block";  
+  if(which === "tamil"){  
+    tamil.parentElement.style.display = "block";  
+    hindi.parentElement.style.display = "none";  
+    tTab.setAttribute("aria-selected", "true");  
+    hTab.setAttribute("aria-selected", "false");  
+  } else {  
+    tamil.parentElement.style.display = "none";  
+    hindi.parentElement.style.display = "block";  
+    tTab.setAttribute("aria-selected", "false");  
+    hTab.setAttribute("aria-selected", "true");  
+  }  
+}  
 
-  <h1>Coolie (2025)</h1>
-  <p>🎧 Dual Audio: Tamil & Hindi</p>
-  <p>Action • Thriller • Drama</p>
+window.onload = function () {  
+  if (TAMIL_DRIVE_ID) document.getElementById("tamilFrame").src = gdrivePreviewSrc(TAMIL_DRIVE_ID);  
+  if (HINDI_DRIVE_ID) document.getElementById("hindiFrame").src = gdrivePreviewSrc(HINDI_DRIVE_ID);  
 
-  <a href="https://drive.google.com/uc?export=preview&id=1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue" class="btn btn-red" target="_blank">Watch (Tamil)</a>
-  <a href="https://drive.google.com/uc?export=preview&id=1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg" class="btn btn-red" target="_blank">Watch (Hindi)</a>
-  <a href="https://drive.google.com/uc?export=download&id=1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue" class="btn btn-red" target="_blank">Download</a>
+  const shouldPlay = sessionStorage.getItem("playMovie") === "true";  
+  const audioPref = sessionStorage.getItem("audio") || "tamil";  
+  if (shouldPlay) {  
+    showPlayer(audioPref);  
+    sessionStorage.removeItem("playMovie");  
+  }  
 
-  <br>
+  document.getElementById("tabTamil").addEventListener("click", () => showPlayer("tamil"));  
+  document.getElementById("tabHindi").addEventListener("click", () => showPlayer("hindi"));  
+};
 
-  <span id="TamilAudio-btn" class="tab tab-active" onclick="openTab('TamilAudio')">Tamil Audio</span>
-  <span id="HindiAudio-btn" class="tab tab-inactive" onclick="openTab('HindiAudio')">Hindi Audio</span>
+</script></head>
 
-  <!-- Tamil Audio Section -->
-  <div id="TamilAudio" class="tab-content active">
-    <h2>Tamil Audio</h2>
-    <iframe src="https://drive.google.com/uc?export=preview&id=1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue" allowfullscreen></iframe>
-  </div>
+<body>  
+  <header>  
+    <h1>LetzCine</h1>  
+  </header>  <section class="section">  
+    <div class="card" style="max-width: 720px; margin: auto;">  
+      <img class="banner" src="../images/Coolie100.jpg" alt="Coolie (2025) banner" />  
+      <div class="card-content">  
+        <h2 style="margin: 0 0 6px;">Coolie (2025)</h2>  
+        <div class="badge" aria-live="polite" aria-atomic="true">  
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>  
+          Dual Audio: Tamil & Hindi  
+        </div>  
+        <div class="meta">Action • Thriller • Drama</div><div class="btns">  
+      <a class="link-button" href="javascript:void(0)" onclick="redirectAndPlay('tamil')">Watch (Tamil)</a>  
+      <a class="link-button" href="javascript:void(0)" onclick="redirectAndPlay('hindi')">Watch (Hindi)</a>  
+      <a class="link-button" href="javascript:void(0)" onclick="window.open(DOWNLOAD_URL, '_blank')">Download</a>  
+    </div>  <div id="videoWrap" class="video-wrap">  
+  <div class="audio-tabs">  
+    <button id="tabTamil" class="tab" aria-selected="true">Tamil Audio</button>  
+    <button id="tabHindi" class="tab" aria-selected="false">Hindi Audio</button>  
+  </div>  
 
-  <!-- Hindi Audio Section -->
-  <div id="HindiAudio" class="tab-content">
-    <h2>Hindi Audio</h2>
-    <iframe src="https://drive.google.com/uc?export=preview&id=1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg" allowfullscreen></iframe>
-  </div>
+  <figure style="display:block;">  
+    <figcaption style="font-weight: 700;">Tamil Audio</figcaption>  
+    <div class="video-container">  
+      <iframe id="tamilFrame" allowfullscreen></iframe>  
+    </div>  
+  </figure>  
 
-  <p style="font-size: 0.85em; color: gray;">
-    Use this page only with content you are authorized to stream or distribute.
-  </p>
-</div>
+  <figure style="display:none; margin-top:18px;">  
+    <figcaption style="font-weight: 700;">Hindi Audio</figcaption>  
+    <div class="video-container">  
+      <iframe id="hindiFrame" allowfullscreen></iframe>  
+    </div>  
+  </figure>  
+</div>  
 
-<footer style="text-align: center; padding: 15px; color: gray; font-size: 0.85em;">
-  © 2025 LetzCine. All rights reserved.
-</footer>
+<p class="legal">  
+  Use this page only with content you are authorized to stream or distribute.  
+  Use this page only with content you are authorized to stream.  
+</p>
 
-</body>
+  </div>  
+</div>    </section>  <footer>  
+    &copy; 2025 LetzCine. All rights reserved.  
+  </footer>  
+</body>  
 </html>
