@@ -1,4 +1,4 @@
- <!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -25,7 +25,7 @@
     .btns { display:flex; gap:10px; flex-wrap: wrap; }
     .link-button { display: inline-block; padding: 10px 16px; background-color: var(--brand); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 700; border: 0; cursor: pointer; }
     .link-button:hover { background-color: var(--brand-dark); }
-    .video-wrap { margin-top: 16px; }
+    .video-wrap { display:none; margin-top: 16px; }
     .audio-tabs { display:flex; gap:8px; margin-bottom: 10px; }
     .tab { padding: 8px 12px; background: var(--accent); color: var(--fg); border: 0; border-radius: 999px; cursor: pointer; font-weight: 600; }
     .tab[aria-selected="true"] { background: var(--brand); }
@@ -34,8 +34,58 @@
     .badge { display:inline-flex; align-items:center; gap:8px; padding: 8px 12px; border-radius: 999px; background: #111; color: #ddd; font-size: 0.9rem; margin: 6px 0 14px; }
     .badge svg { width:18px; height:18px; }
     .legal { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
-  </style>
-</head>
+  </style>  <script>
+    const WATCH_URL = "https://srtslug.biz/Cooliewatch";
+    const DOWNLOAD_URL = "https://srtslug.biz/Coolie";
+    const TAMIL_DRIVE_ID = "1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue";
+    const HINDI_DRIVE_ID = "1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg";
+
+    function gdrivePreviewSrc(fileId){
+      return `https://drive.google.com/file/d/${fileId}/preview`;
+    }
+
+    function redirectAndPlay(audio) {
+      sessionStorage.setItem("playMovie", "true");
+      sessionStorage.setItem("audio", audio);
+      window.location.href = WATCH_URL;
+    }
+
+    function showPlayer(which){
+      const wrap = document.getElementById("videoWrap");
+      const tamil = document.getElementById("tamilFrame");
+      const hindi = document.getElementById("hindiFrame");
+      const tTab = document.getElementById("tabTamil");
+      const hTab = document.getElementById("tabHindi");
+
+      wrap.style.display = "block";
+      if(which === "tamil"){
+        tamil.parentElement.style.display = "block";
+        hindi.parentElement.style.display = "none";
+        tTab.setAttribute("aria-selected", "true");
+        hTab.setAttribute("aria-selected", "false");
+      } else {
+        tamil.parentElement.style.display = "none";
+        hindi.parentElement.style.display = "block";
+        tTab.setAttribute("aria-selected", "false");
+        hTab.setAttribute("aria-selected", "true");
+      }
+    }
+
+    window.onload = function () {
+      if (TAMIL_DRIVE_ID) document.getElementById("tamilFrame").src = gdrivePreviewSrc(TAMIL_DRIVE_ID);
+      if (HINDI_DRIVE_ID) document.getElementById("hindiFrame").src = gdrivePreviewSrc(HINDI_DRIVE_ID);
+
+      const shouldPlay = sessionStorage.getItem("playMovie") === "true";
+      const audioPref = sessionStorage.getItem("audio") || "tamil";
+      if (shouldPlay) {
+        showPlayer(audioPref);
+        sessionStorage.removeItem("playMovie");
+      }
+
+      document.getElementById("tabTamil").addEventListener("click", () => showPlayer("tamil"));
+      document.getElementById("tabHindi").addEventListener("click", () => showPlayer("hindi"));
+    };
+  </script></head>
 <body>
   <header>
     <h1>LetzCine</h1>
@@ -44,53 +94,46 @@
       <img class="banner" src="../images/Coolie100.jpg" alt="Coolie (2025) banner" />
       <div class="card-content">
         <h2 style="margin: 0 0 6px;">Coolie (2025)</h2>
-        <div class="badge">
+        <div class="badge" aria-live="polite" aria-atomic="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
           Dual Audio: Tamil & Hindi
         </div>
         <div class="meta">Action • Thriller • Drama</div><div class="btns">
-      <a class="link-button" href="https://srtslug.biz/Cooliewatch" target="_blank">Watch (Tamil)</a>
-      <a class="link-button" href="https://srtslug.biz/Cooliewatch" target="_blank">Watch (Hindi)</a>
-      <a class="link-button" href="https://srtslug.biz/Coolie" target="_blank">Download</a>
+      <a class="link-button" href="javascript:void(0)" onclick="redirectAndPlay('tamil')">Watch (Tamil)</a>
+      <a class="link-button" href="javascript:void(0)" onclick="redirectAndPlay('hindi')">Watch (Hindi)</a>
+      <a class="link-button" href="javascript:void(0)" onclick="window.open(DOWNLOAD_URL, '_blank')">Download</a>
     </div>
 
     <div id="videoWrap" class="video-wrap">
       <div class="audio-tabs">
-        <button id="tabTamil" class="tab" aria-selected="true" onclick="showPlayer('tamil')">Tamil Audio</button>
-        <button id="tabHindi" class="tab" aria-selected="false" onclick="showPlayer('hindi')">Hindi Audio</button>
+        <button id="tabTamil" class="tab" aria-selected="true">Tamil Audio</button>
+        <button id="tabHindi" class="tab" aria-selected="false">Hindi Audio</button>
       </div>
 
-      <figure id="tamilSection" style="display:block;">
+      <figure style="display:block;">
         <figcaption style="font-weight: 700;">Tamil Audio</figcaption>
         <div class="video-container">
-          <iframe src="https://drive.google.com/uc?export=preview&id=1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue" allowfullscreen></iframe>
+          <iframe id="tamilFrame" allowfullscreen></iframe>
         </div>
-        <a href="https://drive.google.com/file/d/1J6Ay5fbxtlVZhaWQC7uJhfE7T2OYq0ue/view" target="_blank" class="link-button" style="margin-top:8px;">Open in Drive</a>
       </figure>
 
-      <figure id="hindiSection" style="display:none; margin-top:18px;">
+      <figure style="display:none; margin-top:18px;">
         <figcaption style="font-weight: 700;">Hindi Audio</figcaption>
         <div class="video-container">
-          <iframe src="https://drive.google.com/uc?export=preview&id=1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg" allowfullscreen></iframe>
+          <iframe id="hindiFrame" allowfullscreen></iframe>
         </div>
-        <a href="https://drive.google.com/file/d/1o2Iq4y54Gs-GAhlSRNDf_OnKfTBXLvDg/view" target="_blank" class="link-button" style="margin-top:8px;">Open in Drive</a>
       </figure>
     </div>
 
     <p class="legal">
       Use this page only with content you are authorized to stream or distribute.
+      Use this page only with content you are authorized to stream.
     </p>
   </div>
 </div>
 
   </section>  <footer>
     &copy; 2025 LetzCine. All rights reserved.
-  </footer>  <script>
-    function showPlayer(which){
-      document.getElementById('tamilSection').style.display = (which === 'tamil') ? 'block' : 'none';
-      document.getElementById('hindiSection').style.display = (which === 'hindi') ? 'block' : 'none';
-      document.getElementById('tabTamil').setAttribute('aria-selected', which === 'tamil');
-      document.getElementById('tabHindi').setAttribute('aria-selected', which === 'hindi');
-    }
-  </script></body>
- </html>
+  </footer>
+</body>
+</html>
