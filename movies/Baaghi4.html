@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Baaghi 4- LetzCine</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .video-container {
+      display: none;
+      margin-top: 15px;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+    function redirectAndPlay() {
+      sessionStorage.setItem("playMovie", "true");
+      window.location.href = "https://srtslug.biz/Baaghi4";
+    }
+
+    window.onload = function () {
+      if (sessionStorage.getItem("playMovie") === "true") {
+        document.getElementById("videoBox").style.display = "block";
+        sessionStorage.removeItem("playMovie");
+        window.scrollTo(0, document.getElementById("videoBox").offsetTop);
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>LetzCine</h1>
+  </header>
+
+  <section class="section">
+    <div class="card" style="max-width: 500px; margin: auto;">
+      <img src="../images/Baaghi@.jpg" alt="Baaghi 4">
+      <div class="card-content">
+        <h3> Baaghi 4 (2025)</h3>
+        <p>Hindi|Action|Drama</p>
+
+        <!-- Server 1 -->
+        <a href="https://srtslug.biz/Baaghi44" target="_blank" class="link-button">Download</a>
+
+        <!-- Watch Now with redirect -->
+        <a href="javascript:void(0)" onclick="redirectAndPlay()" class="link-button" style="margin-left: 10px;">Watch Now</a>
+
+        <!-- Google Drive Video Embed (Hidden Initially) -->
+        <div id="videoBox" class="video-container">
+          <iframe 
+            src="https://drive.google.com/file/d/1zDfzavjVIH4nURhqC5-HppHLBZ77_Otf/view?usp=sharing/preview" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LetzCine. All rights reserved.
+  </footer>
+</body>
+</html>
