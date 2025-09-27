@@ -4,17 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bigg Boss Kannada Episodes</title>
-  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .episodes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card h2 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    .watch-btn {
+      display: inline-block;
+      margin: 10px 0 20px;
+      padding: 8px 15px;
+      background: #ff3d00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .watch-btn:hover {
+      background: #e63300;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
   <h1>Bigg Boss Kannada - Episodes</h1>
-  <ul>
-    <li>Episode 1 - <a href="bigg-boss/episode1.html">Watch Now</a></li>
-    <li>Episode 2 - <a href="bigg-boss/episode2.html">Watch Now</a></li>
-    <li>Episode 3 - <a href="bigg-boss/episode3.html">Watch Now</a></li>
-    <li>Episode 4 - <a href="bigg-boss/episode4.html">Watch Now</a></li>
-    <!-- Keep adding new episodes -->
-  </ul>
-  <p><a href="events.html">⬅ Back to Events</a></p>
+
+  <div class="episodes">
+    <!-- Episode 1 -->
+    <div class="card">
+      <img src="../images/ep1.jpg" alt="Episode 1">
+      <h2>Episode 1</h2>
+      <a href="bigg-boss/episode1.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <!-- Episode 2 -->
+    <div class="card">
+      <img src="../images/ep2.jpg" alt="Episode 2">
+      <h2>Episode 2</h2>
+      <a href="bigg-boss/episode2.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <!-- Episode 3 -->
+    <div class="card">
+      <img src="../images/ep3.jpg" alt="Episode 3">
+      <h2>Episode 3</h2>
+      <a href="bigg-boss/episode3.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <!-- Episode 4 -->
+    <div class="card">
+      <img src="../images/ep4.jpg" alt="Episode 4">
+      <h2>Episode 4</h2>
+      <a href="bigg-boss/episode4.html" class="watch-btn">Watch Now</a>
+    </div>
+  </div>
+
+  <a href="../events.html" class="back-link">⬅ Back to Events</a>
 </body>
 </html>
