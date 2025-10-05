@@ -1,128 +1,68 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Women's World Cup  - LetzCine (Women's World Cup)</title>
+  <title>Women's World Cup - LetzCine</title>
 
   <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0a;
-      color: #fff;
-    }
-
-    header {
-      background-color: #111;
-      padding: 15px;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #ff0055;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .content {
-      padding: 10px;
-      text-align: center;
-    }
-
-    .video-container {
-      max-width: 900px;
-      margin: auto;
-      margin-top: 20px;
-      position: relative;
-    }
-
-    .video-js {
-      width: 100%;
-      height: 500px;
-    }
-
-    .watermark {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #ff0055;
-      padding: 5px 10px;
-      font-size: 12px;
-      border-radius: 4px;
-      z-index: 999;
-      pointer-events: none;
-    }
-
-    .note {
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #999;
-    }
-
-    .secure-btn {
-      padding: 10px 20px;
-      background: #ff0055;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      color: #fff;
-      cursor: pointer;
-      margin-top: 20px;
-    }
+    body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:#0a0a0a; color:#fff; }
+    header { background-color:#111; padding:15px; text-align:center; font-size:1.5em; font-weight:bold; color:#ff0055; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+    .content { padding:10px; text-align:center; }
+    .video-container { max-width:900px; margin:auto; margin-top:20px; position:relative; }
+    .video-js { width:100%; height:500px; }
+    .watermark { position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.6); color:#ff0055; padding:5px 10px; font-size:12px; border-radius:4px; z-index:999; pointer-events:none; }
+    .note { margin-top:15px; font-size:0.9em; color:#999; }
+    .secure-btn { padding:10px 20px; background:#ff0055; border:none; border-radius:5px; font-weight:bold; color:#fff; cursor:pointer; margin-top:20px; }
   </style>
 
   <!-- Disable Right-click + DevTools -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.onkeydown = function(e) {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && e.key === "I") ||
-        (e.ctrlKey && e.shiftKey && e.key === "J") ||
-        (e.ctrlKey && e.key === "U")
-      ) {
-        return false;
-      }
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I","J"].includes(e.key)) || (e.ctrlKey && e.key === "U")) return false;
     };
   </script>
 </head>
 <body>
 
-  <header>
-    LetzCine (Women's World Cup )- Live Stream
-  </header>
+<header>LetzCine (Women's World Cup) - Live Stream</header>
 
-  <div class="content">
-    <h2>📺 Live - (Women's World Cup)</h2>
+<div class="content">
+  <h2>📺 Live - Women's World Cup</h2>
 
-    <div class="video-container">
-      <iframe src="https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd?__hdnea__=st=1759618205~exp=1759704605~acl=/*~hmac=c30755e8c019f46b6f9c4a739e9f0cc2cd99e27a4738a0d0a153d2b3e5eb8e42" 
-              style="width:100%; height:500px; border:none;" 
-              allowfullscreen>
-      </iframe> 
-      <!-- Watermark Overlay -->
-      <div class="watermark" id="watermark">LetzCine | Loading IP...</div>
-    </div>
-
-    <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
-
-    <!-- Open in VLC / NS Player -->
-    <a href="https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd?__hdnea__=st=1759618205~exp=1759704605~acl=/*~hmac=c30755e8c019f46b6f9c4a739e9f0cc2cd99e27a4738a0d0a153d2b3e5eb8e42">
-      <button class="secure-btn">▶️ Open in VLC / NS Player</button>
-    </a>
+  <div class="video-container">
+    <video id="liveVideo" class="video-js vjs-default-skin" controls autoplay></video>
+    <div class="watermark" id="watermark">LetzCine | Loading IP...</div>
   </div>
 
-  <!-- Fetch and show user IP in watermark -->
-  <script>
-    fetch('https://api.ipify.org?format=json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('watermark').textContent = 'LetzCine | IP: ' + data.ip;
-      });
-  </script>
+  <p class="note">📱 Rotate your phone for full-screen experience. Works best in Chrome or Safari.</p>
+
+  <a href="https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd?__hdnea__=st=1759618205~exp=1759704605~acl=/*~hmac=c30755e8c019f46b6f9c4a739e9f0cc2cd99e27a4738a0d0a153d2b3e5eb8e42">
+    <button class="secure-btn">▶️ Open in VLC / NS Player</button>
+  </a>
+</div>
+
+<!-- Video.js + dash.js -->
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+<script>
+  var player = videojs('liveVideo');
+  player.ready(function() {
+    player.src({
+      src: 'https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd?__hdnea__=st=1759618205~exp=1759704605~acl=/*~hmac=c30755e8c019f46b6f9c4a739e9f0cc2cd99e27a4738a0d0a153d2b3e5eb8e42',
+      type: 'application/dash+xml'
+    });
+    player.play();
+  });
+
+  fetch('https://api.ipify.org?format=json')
+    .then(res => res.json())
+    .then(data => { document.getElementById('watermark').textContent = 'LetzCine | IP: ' + data.ip; });
+</script>
 
 </body>
-</html>
+</html>      
